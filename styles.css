@@ -81,15 +81,14 @@ header.scrolled {
 }
 
 .header-inner {
- display: flex;
-  padding-top: 0;
-  padding-bottom: 0;
+  max-width: 1280px;
   margin: 0 auto;
-  max-width: 1440px;
-  height: 70px;
-  gap: 1rem;
+  padding: 0 2rem;
+  height: 72px;
+  display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .logo {
@@ -316,9 +315,22 @@ nav a:hover {
   background: linear-gradient(to right, rgba(6, 13, 46, 0.92) 0%, rgba(6, 13, 46, 0.6) 60%, rgba(6, 13, 46, 0.2) 100%);
 }
 
+ .hero-decoration {
+  position: absolute;
+  top: 15%;
+  right: 5%;
+  width: clamp(200px, 35vw, 520px);
+  height: clamp(200px, 35vw, 520px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(30, 98, 138, 0.4) 0%, transparent 70%);
+  filter: blur(40px);
+  z-index: 1;
+  pointer-events: none;
+}
 
 .hero-content {
   position: relative;
+   z-index: 10;
   margin: 0 auto;
   padding: 8rem 2rem 4rem;
   display: grid;
@@ -746,12 +758,10 @@ section {
 }
 
 #services {
-  background: white;
-  position: relative;
-  z-index: 10;
-  margin-top: 0;
-  padding: 3rem 2rem 2.5rem;
-}
+   background: rgb(236, 236, 236);
+    position: relative;
+    z-index: 10;
+} 
 
 .services-header {
   text-align: center;
@@ -768,45 +778,31 @@ section {
 
 #services .whyus-text {
   text-align: center;
-  margin-bottom: 1.25rem;
-}
-
-#services .section-title {
-  margin-bottom: 0.75rem;
+  margin-bottom: 2.5rem;
 }
 
 #services .section-desc {
   margin: 0 auto;
-  text-align: center;
 }
 
 .services-swiper {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 3rem 2rem;
+  padding: 1rem 3rem 3.5rem;
   overflow: hidden;
-  position: relative;
-  cursor: default;
-}
-
-.services-swiper.swiper-grab,
-.services-swiper.swiper-grabbing {
-  cursor: default;
 }
 
 .services-swiper .swiper-slide {
   height: auto;
   display: flex;
+  align-items: center;
+  justify-content: center;
+
+  
 }
 
 .services-swiper .service-card {
   width: 100%;
-  height: auto;
-}
-
-.services-swiper .service-card-body p {
-  flex: 0;
+  height: 50%;
 }
 
 .services-swiper .swiper-button-prev,
@@ -819,26 +815,18 @@ section {
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
-  top: calc(50% - 0.85rem);
-  margin-top: -22px;
-  cursor: default;
-  z-index: 2;
 }
 
 .services-swiper .swiper-button-prev::after,
 .services-swiper .swiper-button-next::after {
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 200;
 }
 
 .services-swiper .swiper-button-prev:hover,
 .services-swiper .swiper-button-next:hover {
   background: #1a2a5f;
   color: #ffffff;
-}
-
-.services-swiper .swiper-pagination {
-  bottom: 0.25rem;
 }
 
 .services-swiper .swiper-pagination-bullet {
@@ -1553,12 +1541,8 @@ footer {
     right: 0;
   }
 
-  #services {
-    padding: 2.5rem 2rem 2rem;
-  }
-
   .services-swiper {
-    padding: 0 2.5rem 1.75rem;
+    padding: 1rem 2.5rem 3rem;
   }
 
   .team-grid {
@@ -1601,16 +1585,8 @@ footer {
     gap: 2rem;
   }
 
-  #services {
-    padding: 2rem 1rem 1.5rem;
-  }
-
-  #services .whyus-text {
-    margin-bottom: 1rem;
-  }
-
   .services-swiper {
-    padding: 0 0 1.5rem;
+    padding: 0.5rem 0 3rem;
   }
 
   .services-swiper .swiper-button-prev,

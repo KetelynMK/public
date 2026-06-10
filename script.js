@@ -112,8 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   new Swiper('.services-swiper', {
     loop: true,
-    grabCursor: false,
-    autoHeight: true,
+    grabCursor: true,
     spaceBetween: 24,
     slidesPerView: 1,
     speed: 600,
