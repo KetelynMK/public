@@ -1,13 +1,10 @@
 <title>Grupo Assis Serviços</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <link rel="stylesheet" href="styles.css">
-<<<<<<< HEAD
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
 <script src="script.js" defer></script>
-=======
->>>>>>> de523a7b396b09797200336f17cb154294928716
 
 <body>
-
-  <!-- HEADER -->
   <header id="header">
     <div class="header-inner">
       <a href="#home" class="logo">
@@ -84,7 +81,7 @@
       </div>
       <div class="hero-image-wrap">
         <div class="hero-image-card">
-          <img src="/imagens/on.png" alt="Equipe de limpeza em ação">
+          <img src="imagens/on.png" alt="Equipe de limpeza em ação">
         </div>
         <div class="hero-floating-card">
           <div class="floating-icon">
@@ -108,7 +105,7 @@
       <div class="about-grid">
         <div class="about-image-wrap reveal">
           <div class="about-image-main">
-            <img src="/imagens/balde.png" alt="Equipe de limpeza sorridente"></div>
+            <img src="imagens/balde.png" alt="Equipe de limpeza sorridente"></div>
         </div>
         <div class="reveal">
           <div class="section-label">Sobre Nós</div>
@@ -158,14 +155,14 @@
           e produtos de alta qualidade.</p>
       </div>
 
-
-      <div class="services-grid">
-        <div class="service-card reveal">
+      <div class="swiper services-swiper">
+        <div class="swiper-wrapper">
+        <div class="swiper-slide">
+        <div class="service-card">
           <div class="service-card-image">
-            <img src="/imagens/Equipe de limpeza em ação.png" alt="Limpeza Residencial">
+            <img src="imagens/Equipe de limpeza em ação.png" alt="Limpeza Residencial">
             <div class="service-card-image-overlay"></div>
           </div>
-          
           <div class="service-card-body">
             <div class="service-number">Serviço 01</div>
             <h3>Limpeza Residencial</h3>
@@ -180,9 +177,11 @@
             </a>
           </div>
         </div>
-        <div class="service-card reveal">
+        </div>
+        <div class="swiper-slide">
+        <div class="service-card">
           <div class="service-card-image">
-            <img src="/imagens/imageLI.png " alt="Limpeza detalhada em armários e guarda-roupas">
+            <img src="imagens/imageLI.png" alt="Limpeza detalhada em armários e guarda-roupas">
             <div class="service-card-image-overlay"></div>
           </div>
           <div class="service-card-body">
@@ -199,10 +198,12 @@
             </a>
           </div>
         </div>
+        </div>
 
-        <div class="service-card reveal">
+        <div class="swiper-slide">
+        <div class="service-card">
           <div class="service-card-image">
-            <img src="/imagens/Equipe de limpeza no escritório moderno.png " alt="Limpeza Comercial">
+            <img src="imagens/Equipe de limpeza no escritório moderno.png" alt="Limpeza Comercial">
             <div class="service-card-image-overlay"></div>
           </div>
           <div class="service-card-body">
@@ -219,9 +220,11 @@
             </a>
           </div>
         </div>
-        <div class="service-card reveal">
+        </div>
+        <div class="swiper-slide">
+        <div class="service-card">
           <div class="service-card-image">
-            <img src="/imagens/Equipe de limpeza pós-obra em ação.png " alt="Limpeza Pós-Obra">
+            <img src="imagens/Equipe de limpeza pós-obra em ação.png" alt="Limpeza Pós-Obra">
             <div class="service-card-image-overlay"></div>
           </div>
           <div class="service-card-body">
@@ -238,10 +241,12 @@
             </a>
           </div>
         </div>
+        </div>
 
-        <div class="service-card reveal">
+        <div class="swiper-slide">
+        <div class="service-card">
           <div class="service-card-image">
-            <img src="/imagens/idoso.png" alt="cuidado de idosos">
+            <img src="imagens/idoso.png" alt="cuidado de idosos">
             <div class="service-card-image-overlay"></div>
           </div>
           <div class="service-card-body">
@@ -257,10 +262,12 @@
             </a>
           </div>
         </div>
+        </div>
 
-          <div class="service-card reveal">
+        <div class="swiper-slide">
+        <div class="service-card">
           <div class="service-card-image">
-            <img src="/imagens/dog.jfif" alt="cuidado de idosos">
+            <img src="imagens/dog.jfif" alt="cuidado de animais">
             <div class="service-card-image-overlay"></div>
           </div>
           <div class="service-card-body">
@@ -276,6 +283,12 @@
             </a>
           </div>
         </div>
+        </div>
+        </div>
+
+        <div class="swiper-button-prev" aria-label="Serviço anterior"></div>
+        <div class="swiper-button-next" aria-label="Próximo serviço"></div>
+        <div class="swiper-pagination"></div>
       </div>
     </div>
   </section>
@@ -284,7 +297,7 @@
   <section id="whyus">
     <div class="container">
       <div class="whyus-text reveal">
-        <div class="section-label1">Por Que Nos Escolher</div>
+        <div class="section-label">Por Que Nos Escolher</div>
         <h2 class="section-title">Compromisso com a excelência</h2>
         <p class="section-desc">Mais do que limpeza — entregamos tranquilidade, confiança e resultados que você pode
           ver e sentir.</p>
@@ -349,7 +362,7 @@
   <section id="team">
     <div class="container">
       <div class="whyus-text reveal">
-        <div class="section-label1">Nossa Equipe</div>
+        <div class="section-label">Nossa Equipe</div>
         <h2 class="section-title">Quem Somos</h2>
         <p class="section-desc">Profissionais com 10+ anos de experiência na limpeza, dedicados,
           treinados e comprometidos com a excelência em cada serviço prestado.</p>
@@ -357,7 +370,7 @@
       <div class="team-grid">
         <div class="team-card reveal">
           <div class="team-avatar"
-            style="background-image:url('/imagens/madrinha\ com\ camisa.png');background-size:cover;background-position:center"></div>
+            style="background-image:url('imagens/madrinha\ com\ camisa.png');background-size:cover;background-position:center"></div>
 
           <h3>Karina</h3>
           <div class="role">Financeiro, Marketing e Administração</div>
@@ -366,7 +379,7 @@
         </div>
         <div class="team-card reveal">
           <div class="team-avatar"
-            style="background-image:url('/imagens/mae\ com\ camisa.png');background-size:cover;background-position:center"></div>
+            style="background-image:url('imagens/mae\ com\ camisa.png');background-size:cover;background-position:center"></div>
           <h3>Cleciany</h3>
           <div class="role">Recrutador e administração</div>
           <p>Responsável por prospectar e avaliar candidatos, conduzir entrevistas e integração, checar documentação e
@@ -375,14 +388,14 @@
         </div>
         <div class="team-card reveal">
           <div class="team-avatar"
-            style="background-image:url('/imagens/pai.png');background-size:cover;background-position:center"></div>
+            style="background-image:url('imagens/pai.png');background-size:cover;background-position:center"></div>
           <h3>Oliver</h3>
           <div class="role">Operações e vistoria</div>
           <p>Responsável pela gestão das operações diárias e pela realização de vistorias, garantindo a qualidade e a conformidade dos serviços prestados.</p>
         </div>
         <div class="team-card reveal">
           <div class="team-avatar"
-            style="background-image:url('/imagens/ketelyn.png');background-size:cover;background-position:center"></div>
+            style="background-image:url('imagens/ketelyn.png');background-size:cover;background-position:center"></div>
           <h3>Ketelyn</h3>
           <div class="role">Programadora</div>
           <p>Responsável por desenvolver, manter e evoluir sistemas, automações e canais digitais da empresa,
