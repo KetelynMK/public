@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grupo Assis Serviços - Mobile</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body class="mobile-page">
+  <header class="mobile-header">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Grupo Assis" />
+      <div class="logo-text">
+        <span>Grupo Assis</span>
+        <span>Serviços de Limpeza</span>
+      </div>
+    </a>
+    <a class="btn-whatsapp" href="https://wa.me/5511983184154?text=Ol%C3%A1%21%20Vim%20pelo%20site%20mobile%20do%20Grupo%20Assis%20Servi%C3%A7os." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+  </header>
+
+  <main class="mobile-shell">
+    <section class="mobile-hero">
+      <p class="section-label">Versão mobile</p>
+      <h1>Limpeza impecável para seu espaço</h1>
+      <p class="section-desc">Página pensada para celular, com os mesmos blocos principais do site e atendimento rápido pelo WhatsApp.</p>
+      <a class="btn-primary" href="#servicos-mobile">Ver serviços</a>
+    </section>
+
+    <section id="servicos-mobile" class="mobile-card-list">
+      <article class="mobile-card">
+        <h2>Nossos Serviços</h2>
+        <p>Residencial, comercial, pós-obra, cuidado com idosos e cuidado com animais — tudo em um só atendimento.</p>
+      </article>
+      <article class="mobile-card">
+        <h2>Limpeza Residencial</h2>
+        <p>Limpeza completa para casas e apartamentos com cuidado, organização e atenção aos detalhes.</p>
+      </article>
+      <article class="mobile-card">
+        <h2>Limpeza Comercial</h2>
+        <p>Ambientes profissionais sempre organizados, limpos e prontos para receber clientes e colaboradores.</p>
+      </article>
+      <article class="mobile-card">
+        <h2>Pós-Obra</h2>
+        <p>Remoção de resíduos, pó e acabamento para deixar o espaço pronto para uso com agilidade.</p>
+      </article>
+    </section>
+
+    <section class="mobile-card-list">
+      <article class="mobile-card">
+        <h2>Compromisso com a excelência</h2>
+        <p>Mais do que limpeza — entregamos tranquilidade, confiança e resultados que você pode ver e sentir.</p>
+        <ul class="feature-list-mobile">
+          <li>Equipe treinada</li>
+          <li>Produtos de alta qualidade e ecológicos</li>
+          <li>Pontualidade e respeito ao seu tempo</li>
+          <li>Preços justos e transparentes</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="mobile-card-list">
+      <article class="mobile-card">
+        <h2>Quem Somos</h2>
+        <p>Profissionais com experiência na limpeza, dedicados, treinados e comprometidos com a excelência em cada serviço.</p>
+      </article>
+      <article class="mobile-card">
+        <h2>Karina</h2>
+        <p>Financeiro, marketing e administração — organização, estratégia e atendimento com profissionalismo.</p>
+      </article>
+      <article class="mobile-card">
+        <h2>Cleciany</h2>
+        <p>Recrutamento e administração — seleção, integração e apoio para garantir confiabilidade e qualidade.</p>
+      </article>
+    </section>
+
+    <section class="mobile-contact-card contact-form-mobile">
+      <h2>Envie sua mensagem</h2>
+      <p>Solicite um orçamento rápido pelo WhatsApp e receba atendimento personalizado.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="mobile-name">Nome Completo</label>
+          <input id="mobile-name" type="text" placeholder="Seu nome" />
+        </div>
+        <div class="form-group">
+          <label for="mobile-email">E-mail</label>
+          <input id="mobile-email" type="email" placeholder="seu@email.com" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="mobile-phone">Telefone</label>
+          <input id="mobile-phone" type="tel" placeholder="(11) 99999-9999" />
+        </div>
+        <div class="form-group">
+          <label for="mobile-service">Tipo de Serviço</label>
+          <select id="mobile-service">
+            <option>Selecione...</option>
+            <option>Limpeza Residencial</option>
+            <option>Limpeza Detalhada</option>
+            <option>Limpeza Comercial</option>
+            <option>Pós-Obra</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mobile-message">Mensagem</label>
+        <textarea id="mobile-message" placeholder="Descreva o que você precisa..."></textarea>
+      </div>
+      <a class="btn-whatsapp" href="#" onclick="event.preventDefault(); sendWhatsApp('mobile');" rel="noopener noreferrer">Enviar pelo WhatsApp</a>
+    </section>
+  </main>
+</body>
+</html>

@@ -70,15 +70,10 @@ if (phoneInput) {
   });
 }
 
-// WhatsApp send
-function sendWhatsApp() {
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const service = document.getElementById('service').value;
-  const message = document.getElementById('message').value.trim();
+const CONTACT_DB_KEY = 'assis-contact-draft';
 
-  const serviceLabels = {
+function getServiceLabel(service) {
+  const labels = {
     residencial: 'Limpeza Residencial',
     detalhada: 'Limpeza Detalhada',
     comercial: 'Limpeza Comercial',
@@ -88,25 +83,101 @@ function sendWhatsApp() {
     '': 'Não especificado'
   };
 
-  if (!name || !phone) {
+  return labels[service] || 'Não especificado';
+}
+
+function getContactData(scope = 'desktop') {
+  const ids = scope === 'mobile'
+    ? {
+        name: 'mobile-name',
+        email: 'mobile-email',
+        phone: 'mobile-phone',
+        service: 'mobile-service',
+        message: 'mobile-message'
+      }
+    : {
+        name: 'name',
+        email: 'email',
+        phone: 'phone',
+        service: 'service',
+        message: 'message'
+      };
+
+  return {
+    name: document.getElementById(ids.name)?.value.trim() || '',
+    email: document.getElementById(ids.email)?.value.trim() || '',
+    phone: document.getElementById(ids.phone)?.value.trim() || '',
+    service: document.getElementById(ids.service)?.value || '',
+    message: document.getElementById(ids.message)?.value.trim() || '',
+    scope
+  };
+}
+
+function saveContactDraft(scope = 'desktop') {
+  const data = getContactData(scope);
+  const current = JSON.parse(localStorage.getItem(CONTACT_DB_KEY) || '{}');
+  current[scope] = data;
+  localStorage.setItem(CONTACT_DB_KEY, JSON.stringify(current));
+}
+
+function loadContactDraft(scope = 'desktop') {
+  const current = JSON.parse(localStorage.getItem(CONTACT_DB_KEY) || '{}');
+  const data = current[scope] || {};
+
+  const ids = scope === 'mobile'
+    ? ['mobile-name', 'mobile-email', 'mobile-phone', 'mobile-service', 'mobile-message']
+    : ['name', 'email', 'phone', 'service', 'message'];
+
+  const elements = {
+    name: document.getElementById(ids[0]),
+    email: document.getElementById(ids[1]),
+    phone: document.getElementById(ids[2]),
+    service: document.getElementById(ids[3]),
+    message: document.getElementById(ids[4])
+  };
+
+  if (elements.name && data.name) elements.name.value = data.name;
+  if (elements.email && data.email) elements.email.value = data.email;
+  if (elements.phone && data.phone) elements.phone.value = data.phone;
+  if (elements.service && data.service) elements.service.value = data.service;
+  if (elements.message && data.message) elements.message.value = data.message;
+}
+
+function sendWhatsApp(scope = 'desktop') {
+  const data = getContactData(scope);
+  saveContactDraft(scope);
+
+  if (!data.name || !data.phone) {
     alert('Por favor, preencha pelo menos seu nome e telefone.');
     return;
   }
 
   const text = `Olá! Vim pelo site e gostaria de um orçamento. 😊
 
-*Nome:* ${name}
-*E-mail:* ${email || 'Não informado'}
-*Telefone:* ${phone}
-*Serviço:* ${serviceLabels[service] || 'Não especificado'}
-*Mensagem:* ${message || 'Sem mensagem adicional'}`;
+*Nome:* ${data.name}
+*E-mail:* ${data.email || 'Não informado'}
+*Telefone:* ${data.phone}
+*Serviço:* ${getServiceLabel(data.service)}
+*Mensagem:* ${data.message || 'Sem mensagem adicional'}`;
 
   const url = `https://wa.me/5511983184154?text=${encodeURIComponent(text)}`;
   window.open(url, '_blank');
 }
 
-// Carrossel de serviços (Swiper)
 document.addEventListener('DOMContentLoaded', () => {
+  const desktopForm = document.querySelector('.contact-form');
+  if (desktopForm) {
+    desktopForm.addEventListener('input', () => saveContactDraft('desktop'));
+    loadContactDraft('desktop');
+  }
+
+  const mobileForm = document.querySelector('.contact-form-mobile');
+  if (mobileForm) {
+    mobileForm.addEventListener('input', () => saveContactDraft('mobile'));
+    loadContactDraft('mobile');
+  }
+
+  // Carrossel de serviços (Swiper)
   const servicesEl = document.querySelector('.services-swiper');
   if (!servicesEl || typeof Swiper === 'undefined') return;
 

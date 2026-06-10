@@ -43,10 +43,58 @@ html {
 body {
   font-family: 'Montserrat', sans-serif;
   background: rgb(237, 237, 236);
-  color:#507f9df1;
-  overflow-x: hidden;
+  color: #507f9df1;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+body.home-page {
+  background:
+    linear-gradient(135deg, rgba(26, 42, 108, 0.92) 0%, rgba(8, 15, 35, 0.92) 45%, rgba(16, 27, 66, 0.96) 100%),
+    url('imagens/imagem logo.png') center/cover no-repeat fixed;
+  color: #eff4ff;
+}
+
+.page-standalone {
+  background: #ffffff !important;
+  background-image: none !important;
+  color: #14213d;
+}
+
+.page-standalone .standalone-header,
+.page-standalone .standalone-card {
+  background: #ffffff;
+}
+
+.standalone-page {
+  min-height: 100vh;
+  padding: 2rem 1rem 3rem;
+}
+
+.standalone-header {
+  max-width: 920px;
+  margin: 0 auto 1.5rem;
+  text-align: center;
+}
+
+.standalone-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+}
+
+.standalone-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.standalone-card {
+  min-height: 100%;
 }
 
 img {
@@ -502,7 +550,7 @@ nav a:hover {
   line-height: 1.25;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  hyphens: auto;z
+  hyphens: auto;
 }
 
 .hero-image-wrap {
@@ -585,8 +633,92 @@ nav a:hover {
 }
 
 section {
-  padding: 6rem 2rem;
-  
+  padding: 5rem 2rem 4rem;
+  scroll-margin-top: 90px;
+}
+
+#about,
+#services,
+#whyus,
+#team,
+#contact {
+  background: transparent;
+  color: inherit;
+}
+
+.mobile-page {
+  background: linear-gradient(180deg, #eff4ff 0%, #edf2f7 100%);
+  color: #15213a;
+}
+
+.mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.88);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.mobile-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.mobile-hero,
+.mobile-card,
+.mobile-contact-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 18px;
+  box-shadow: var(--shadow-sm);
+  padding: 1rem;
+}
+
+.mobile-hero h1,
+.mobile-card h2,
+.mobile-contact-card h2 {
+  color: #10203f;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 0.6rem;
+}
+
+.mobile-card-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.mobile-card p,
+.mobile-contact-card p,
+.mobile-hero .section-desc {
+  color: #334155;
+  line-height: 1.6;
+}
+
+.feature-list-mobile {
+  margin-top: 0.75rem;
+  padding-left: 1rem;
+  color: #1f2937;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.contact-form-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.mobile-contact-card .btn-whatsapp,
+.mobile-hero .btn-primary {
+  display: inline-flex;
+  margin-top: 0.75rem;
 }
 
 .container {
@@ -616,7 +748,7 @@ section {
 
 .section-desc {
   font-size: 1rem;
-  color: #000000;
+  color: #ffffff;
   line-height: 1.8;
   max-width: 560px;
 }
@@ -624,15 +756,20 @@ section {
 /* ===== ABOUT ===== */
 #about {
   position: relative;
-    z-index: 10;
-  background:#5f768b00;
+  z-index: 10;
+  background: #5f768b00;
+  padding-top: 4.5rem;
 }
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
+  grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
+  gap: 2.5rem;
   align-items: center;
+}
+
+.about-image-wrap {
+  min-width: 0;
 }
 
 .about-image-wrap {
@@ -689,10 +826,10 @@ section {
 }
 
 .mvv-list {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .mvv-item {
@@ -701,8 +838,9 @@ section {
   align-items: flex-start;
   padding: 1.25rem;
   border-radius: 14px;
-  background: #e6e9f0;
-  border: 1px solid transparent;
+  background: #f8fbff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease-in-out;
 }
 
@@ -758,10 +896,16 @@ section {
 }
 
 #services {
-   background: rgb(236, 236, 236);
-    position: relative;
-    z-index: 10;
-} 
+  background: rgb(236, 236, 236);
+  position: relative;
+  z-index: 10;
+}
+
+#services .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .services-header {
   text-align: center;
@@ -777,8 +921,16 @@ section {
 }
 
 #services .whyus-text {
+  width: 100%;
+  max-width: 760px;
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin: 0 auto 2rem;
+}
+
+#services .section-title,
+#services .section-desc,
+#services .section-label {
+  color: #000000;
 }
 
 #services .section-desc {
@@ -787,28 +939,34 @@ section {
 
 .services-swiper {
   width: 100%;
-  padding: 1rem 3rem 3.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 0 3.5rem;
   overflow: hidden;
+}
+
+.services-swiper .swiper-wrapper {
+  align-items: stretch;
 }
 
 .services-swiper .swiper-slide {
   height: auto;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-
-  
 }
 
 .services-swiper .service-card {
   width: 100%;
-  height: 50%;
+  max-width: 420px;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .services-swiper .swiper-button-prev,
 .services-swiper .swiper-button-next {
-  color: #1a2a5f;
-  background: #ffffff;
+  color: #6674a1;
+  background: #d6d6d8;
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -826,7 +984,7 @@ section {
 .services-swiper .swiper-button-prev:hover,
 .services-swiper .swiper-button-next:hover {
   background: #1a2a5f;
-  color: #ffffff;
+  color: #beccdb;
 }
 
 .services-swiper .swiper-pagination-bullet {
@@ -840,14 +998,10 @@ section {
 }
 
 .service-card {
-  background: rgb(217, 226, 240);
+  background: rgb(67, 94, 136);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: ;
-  transition: all 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid rgb(0, 0, 0);
+  box-shadow: var(--shadow-sm);
 }
 
 .service-card:hover {
@@ -982,7 +1136,7 @@ section {
   font-size: 2rem;
   font-weight: 700;
   color: #000000;
-  box-shadow: 0 8px 24px rgba(10, 20, 66, 0.2);
+  box-shadow: 0 8px 24px rgb(173, 174, 180);
 }
 
 .team-card h3 {
@@ -1069,14 +1223,14 @@ section {
 .team-card h3 {
   font-size: 1.05rem;
   font-weight: 700;
-  color: #000000;
+  color: #ffffff;
   margin-bottom: 0.35rem;
 }
 
 .team-card .role {
   font-size: 0.78rem;
   font-weight: 600;
-  color: #000000;
+  color: #e5eefb;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 1rem;
@@ -1084,7 +1238,7 @@ section {
 
 .team-card p {
   font-size: 0.85rem;
-  color: #000000;
+  color: #f5f7ff;
   line-height: 1.7;
 }
 
@@ -1123,11 +1277,11 @@ section {
 }
 
 .whyus-text .section-title {
-  color: #000000;
+  color: #ffffff;
 }
 
 .whyus-text .section-desc {
-  color:#000000;
+  color:#ffffff;
 }
 
 .features-list {
@@ -1141,7 +1295,7 @@ section {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: #000000;
+  color: #ffffff;
   font-size: 0.9rem;
   font-weight: 500;
 }
@@ -1171,8 +1325,8 @@ section {
 }
 
 .whyus-card {
-  background: rgb(222, 231, 248);
-  border: 1px solid rgb(18, 6, 49);
+  background: #dfe7f8;
+  border: 1px solid #b7c8ea;
   border-radius: 16px;
   padding: 1.5rem;
   transition: all 0.3s ease-in-out;
@@ -1204,6 +1358,14 @@ section {
 /* ===== CONTACT ===== */
 #contact {
   background: #e0e0e0;
+}
+
+#contact .section-label {
+  color: #000000;
+}
+
+#contact .section-label::before {
+  background: #000000;
 }
 
 .contact-wrapper {
@@ -1274,11 +1436,14 @@ section {
 }
 
 .contact-form {
-  background: rgba(255, 255, 255, 0.06);
+  background: #afc3d3;
   border-radius: 24px;
   padding: 2.5rem;
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  border: 2px solid #000000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .contact-form h3 {
@@ -1307,7 +1472,7 @@ section {
 .form-group select {
   width: 100%;
   padding: 0.85rem 1rem;
-  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border: 1.5px solid rgba(57, 64, 160, 0.2);
   border-radius: 10px;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.9rem;
@@ -1467,7 +1632,7 @@ footer {
   height: 22px;
   flex-shrink: 0;
 }
-.reveal1{
+.reveal{
   opacity: 0;
   transform: translateY(0);
   color:  rgba(0, 0, 0, 1);
@@ -1486,7 +1651,7 @@ footer {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: #000000; 
+  color: #ffffff; 
   margin-bottom: 1rem;
   align-items: center;
 }
@@ -1495,7 +1660,7 @@ footer {
   content: '';
   width: 24px;
   height: 2px;
-  background: #000000;
+  background: #ffffff;
   border-radius: 2px;
 }
 
@@ -1503,7 +1668,7 @@ footer {
   font-family: 'Playfair Display', serif;
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 700;
-  color: #000000;
+  color: #ffffff;
   line-height: 1.2;
   margin-bottom: 1.25rem;
   text-align: center;
@@ -1519,6 +1684,14 @@ footer {
 }
 
 @media (max-width: 1024px) {
+  .standalone-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
   .hero-content {
     grid-template-columns: 1fr;
   }
@@ -1532,9 +1705,9 @@ footer {
   }
 
   .about-grid {
-    grid-template-columns: 1fr;
-    flex-direction:row;
-    display: flex;
+    grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.05fr);
+    gap: 1.5rem;
+    display: grid;
   }
 
   .about-badge {
@@ -1542,7 +1715,11 @@ footer {
   }
 
   .services-swiper {
-    padding: 1rem 2.5rem 3rem;
+    padding: 1rem 1rem 3rem;
+  }
+
+  .service-card {
+    max-width: 100%;
   }
 
   .team-grid {
@@ -1559,6 +1736,14 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .standalone-cards {
+    grid-template-columns: 1fr;
+  }
+
+  html {
+    font-size: 15px;
+  }
+
   nav {
     display: none;
   }
@@ -1581,12 +1766,25 @@ footer {
   }
 
   .hero-content {
-    padding: max(6.5rem, calc(env(safe-area-inset-top) + 4.5rem)) max(1.25rem, env(safe-area-inset-left)) 2.5rem max(1.25rem, env(safe-area-inset-right));
-    gap: 2rem;
+    padding: max(6.5rem, calc(env(safe-area-inset-top) + 4.5rem)) max(1rem, env(safe-area-inset-left)) 2rem max(1rem, env(safe-area-inset-right));
+    gap: 1.5rem;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(2rem, 8vw, 2.6rem);
+  }
+
+  .hero-text p,
+  .section-desc {
+    font-size: 0.95rem;
   }
 
   .services-swiper {
-    padding: 0.5rem 0 3rem;
+    padding: 0.5rem 0 2.5rem;
+  }
+
+  .service-card-body {
+    padding: 1rem;
   }
 
   .services-swiper .swiper-button-prev,
@@ -1653,7 +1851,25 @@ footer {
 
 @media (max-width: 480px) {
   html {
-    font-size: 15px;
+    font-size: 14px;
+  }
+
+  .about-grid {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .about-image-main {
+    min-height: 180px;
+  }
+
+  .mvv-item {
+    padding: 0.85rem;
+  }
+
+  section {
+    padding: 3rem 0.85rem 3rem;
   }
 
   .team-grid {
@@ -1685,7 +1901,29 @@ footer {
   .logo {
     background: rgba(243, 243, 243, 0.12);
     border-radius: 12px;
-    padding: 0.2rem 0.45rem;
+    padding: 0.15rem 0.35rem;
+  }
+
+  .logo img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .header-inner {
+    padding: 0 0.75rem;
+  }
+
+  .hero-actions,
+  .btn-whatsapp,
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-outline,
+  .btn-whatsapp {
+    justify-content: center;
   }
 
   .logo-text {
