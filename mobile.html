@@ -1,114 +1,343 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grupo Assis Serviços - Mobile</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
-<body class="mobile-page">
-  <header class="mobile-header">
-    <a href="index.html" class="logo">
-      <img src="logo.png" alt="Grupo Assis" />
-      <div class="logo-text">
-        <span>Grupo Assis</span>
-        <span>Serviços de Limpeza</span>
+<body class="home-page mobile-page">
+  <header id="header" class="site-header" data-header>
+    <div class="header-inner">
+      <a href="index.html#home" class="brand" aria-label="Grupo Assis Serviços">
+        <img src="logo.png" alt="Grupo Assis">
+        <span>
+          <strong>Grupo Assis</strong>
+          <small>Serviços de Limpeza</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" data-menu-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="#services">Serviços</a>
+        <a href="#pricing">Preços</a>
+        <a href="#feedback">Feedbacks</a>
+        <a href="#contact">Contato</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-outline-dark" href="#work-with-us">Quero ser contratada</a>
+        <a class="btn btn-solid" href="#contact">Quero contratar</a>
       </div>
-    </a>
-    <a class="btn-whatsapp" href="https://wa.me/5511983184154?text=Ol%C3%A1%21%20Vim%20pelo%20site%20mobile%20do%20Grupo%20Assis%20Servi%C3%A7os." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Menu mobile" data-mobile-nav>
+      <a href="#home" data-close-menu>Início</a>
+      <a href="#services" data-close-menu>Serviços</a>
+      <a href="#pricing" data-close-menu>Preços</a>
+      <a href="#whyus" data-close-menu>Diferenciais</a>
+      <a href="#feedback" data-close-menu>Feedbacks</a>
+      <a href="#work-with-us" data-close-menu>Ser contratada</a>
+      <a href="#contact" data-close-menu>Contato</a>
+    </nav>
   </header>
 
-  <main class="mobile-shell">
-    <section class="mobile-hero">
-      <p class="section-label">Versão mobile</p>
-      <h1>Limpeza impecável para seu espaço</h1>
-      <p class="section-desc">Página pensada para celular, com os mesmos blocos principais do site e atendimento rápido pelo WhatsApp.</p>
-      <a class="btn-primary" href="#servicos-mobile">Ver serviços</a>
-    </section>
-
-    <section id="servicos-mobile" class="mobile-card-list">
-      <article class="mobile-card">
-        <h2>Nossos Serviços</h2>
-        <p>Residencial, comercial, pós-obra, cuidado com idosos e cuidado com animais — tudo em um só atendimento.</p>
-      </article>
-      <article class="mobile-card">
-        <h2>Limpeza Residencial</h2>
-        <p>Limpeza completa para casas e apartamentos com cuidado, organização e atenção aos detalhes.</p>
-      </article>
-      <article class="mobile-card">
-        <h2>Limpeza Comercial</h2>
-        <p>Ambientes profissionais sempre organizados, limpos e prontos para receber clientes e colaboradores.</p>
-      </article>
-      <article class="mobile-card">
-        <h2>Pós-Obra</h2>
-        <p>Remoção de resíduos, pó e acabamento para deixar o espaço pronto para uso com agilidade.</p>
-      </article>
-    </section>
-
-    <section class="mobile-card-list">
-      <article class="mobile-card">
-        <h2>Compromisso com a excelência</h2>
-        <p>Mais do que limpeza — entregamos tranquilidade, confiança e resultados que você pode ver e sentir.</p>
-        <ul class="feature-list-mobile">
-          <li>Equipe treinada</li>
-          <li>Produtos de alta qualidade e ecológicos</li>
-          <li>Pontualidade e respeito ao seu tempo</li>
-          <li>Preços justos e transparentes</li>
-        </ul>
-      </article>
-    </section>
-
-    <section class="mobile-card-list">
-      <article class="mobile-card">
-        <h2>Quem Somos</h2>
-        <p>Profissionais com experiência na limpeza, dedicados, treinados e comprometidos com a excelência em cada serviço.</p>
-      </article>
-      <article class="mobile-card">
-        <h2>Karina</h2>
-        <p>Financeiro, marketing e administração — organização, estratégia e atendimento com profissionalismo.</p>
-      </article>
-      <article class="mobile-card">
-        <h2>Cleciany</h2>
-        <p>Recrutamento e administração — seleção, integração e apoio para garantir confiabilidade e qualidade.</p>
-      </article>
-    </section>
-
-    <section class="mobile-contact-card contact-form-mobile">
-      <h2>Envie sua mensagem</h2>
-      <p>Solicite um orçamento rápido pelo WhatsApp e receba atendimento personalizado.</p>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="mobile-name">Nome Completo</label>
-          <input id="mobile-name" type="text" placeholder="Seu nome" />
-        </div>
-        <div class="form-group">
-          <label for="mobile-email">E-mail</label>
-          <input id="mobile-email" type="email" placeholder="seu@email.com" />
+  <main>
+    <section id="home" class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content reveal">
+        <p class="eyebrow">Mobile Grupo Assis</p>
+        <h1>Limpeza, seleção e cuidado para sua rotina.</h1>
+        <p>Uma página rápida para contratar serviços ou se cadastrar para trabalhar com a nossa equipe.</p>
+        <div class="hero-actions">
+          <a class="btn btn-ghost-light" href="#work-with-us">Quero ser contratada</a>
+          <a class="btn btn-light" href="#services">Ver serviços</a>
         </div>
       </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="mobile-phone">Telefone</label>
-          <input id="mobile-phone" type="tel" placeholder="(11) 99999-9999" />
+    </section>
+
+    <section id="services" class="section services-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Ver nossos serviços</p>
+          <h2>Nossos serviços</h2>
+          <p>Fotos reais do visual do projeto e serviços organizados para escolher rápido pelo celular.</p>
         </div>
-        <div class="form-group">
-          <label for="mobile-service">Tipo de Serviço</label>
-          <select id="mobile-service">
-            <option>Selecione...</option>
-            <option>Limpeza Residencial</option>
-            <option>Limpeza Detalhada</option>
-            <option>Limpeza Comercial</option>
-            <option>Pós-Obra</option>
-          </select>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <img src="imagens/Equipe de limpeza em ação.png" alt="Limpeza residencial">
+            <div class="service-card-body">
+              <p>Serviço 01</p>
+              <h3>Limpeza residencial</h3>
+              <span></span>
+              <a href="#contact">Entre em contato</a>
+            </div>
+          </article>
+          <article class="service-card reveal">
+            <img src="imagens/imageLI.png" alt="Limpeza detalhada">
+            <div class="service-card-body">
+              <p>Serviço 02</p>
+              <h3>Limpeza detalhada</h3>
+              <span></span>
+              <a href="#contact">Entre em contato</a>
+            </div>
+          </article>
+          <article class="service-card reveal">
+            <img src="imagens/Equipe de limpeza pós-obra em ação.png" alt="Limpeza pós-obra">
+            <div class="service-card-body">
+              <p>Serviço 03</p>
+              <h3>Limpeza pós-obra</h3>
+              <span></span>
+              <a href="#contact">Entre em contato</a>
+            </div>
+          </article>
+        </div>
+
+        <div id="gallery" class="gallery-block reveal">
+          <p class="gallery-pill">Galeria</p>
+          <h3>Nosso trabalho em fotos</h3>
+          <p>Qualidade, cuidado e equipe preparada em cada atendimento.</p>
+          <div class="gallery-grid">
+            <img class="gallery-main" src="imagens/cozinha.jfif" alt="Cozinha organizada e limpa">
+            <img src="imagens/cozinha2.jfif" alt="Cozinha com acabamento bonito">
+            <img src="imagens/cama.jfif" alt="Quarto bem cuidado">
+            <img src="imagens/banheiro.jfif" alt="Banheiro limpo e organizado">
+            <img src="imagens/sala.jfif" alt="Sala com ambiente limpo">
+            <img src="imagens/sala2.jfif" alt="Sala em destaque visual">
+          </div>
         </div>
       </div>
-      <div class="form-group">
-        <label for="mobile-message">Mensagem</label>
-        <textarea id="mobile-message" placeholder="Descreva o que você precisa..."></textarea>
+    </section>
+
+    <section id="pricing" class="section pricing-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Valores claros</p>
+          <h2>Preços transparentes</h2>
+          <p>Planos flexíveis para cada necessidade, sem custos escondidos.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card reveal">
+            <h3>Limpeza ocasional</h3>
+            <div class="rating">★★★★☆</div>
+            <strong>Sob consulta</strong>
+            <small>por faxina</small>
+            <ul>
+              <li>1 a 2 Faxineiras rofissionais</li>
+              <li>Produtos de limpeza do cliente</li>
+              <li>4 a 8 horas de serviço</li>
+              <li>Garantia de satisfação</li>
+            </ul>
+            <a class="btn btn-soft" href="#contact">Agendar agora</a>
+          </article>
+        </div>
       </div>
-      <a class="btn-whatsapp" href="#" onclick="event.preventDefault(); sendWhatsApp('mobile');" rel="noopener noreferrer">Enviar pelo WhatsApp</a>
+    </section>
+
+    <section id="whyus" class="section why-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Por que Grupo Assis?</p>
+          <h2>Diferenciais exclusivos</h2>
+          <p>Mais previsibilidade, cuidado e facilidade no atendimento.</p>
+        </div>
+
+        <div class="why-layout">
+          <article class="savings-card reveal">
+            <h3>Economize tempo por faxina</h3>
+            <div class="saving-row">
+              <span class="icon-box">✦</span>
+              <div>
+                <strong>Produtos</strong>
+                <p>Materiais combinados no orçamento para facilitar a rotina.</p>
+              </div>
+              <b>Incluso</b>
+            </div>
+            <div class="saving-row">
+              <span class="icon-box">⌂</span>
+              <div>
+                <strong>Equipe pronta</strong>
+                <p>Profissionais orientadas para chegar e executar.</p>
+              </div>
+              <b>Planejado</b>
+            </div>
+          </article>
+
+          <article class="exclusive-card reveal">
+            <h3>O que você recebe</h3>
+            <ul>
+              <li><span>✓</span>Profissionais treinadas e uniformizadas</li>
+              <li><span>✓</span>Garantia de qualidade e satisfação</li>
+              <li><span>✓</span>Supervisor dedicado</li>
+              <li><span>✓</span>Agendamento flexível e fácil</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="feedback" class="section feedback-section">
+      <div class="container">
+        <div class="feedback-poster reveal">
+          <p>@grupoassisservicos</p>
+          <div class="feedback-title">
+            <span>feedback</span>
+            <span>feedback</span>
+            <b>DÊ SEU FEEDBACK</b>
+          </div>
+          <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            <strong>Natália</strong>
+            <p>Profissional pontual, cuidadosa e casa cheirosa. Gostei muito do atendimento.</p>
+          </div>
+          <a class="btn btn-light" href="#feedback-list">Ver feedbacks</a>
+        </div>
+
+        <form class="feedback-form reveal" data-feedback-form>
+          <label>
+            Seu comentário
+            <textarea name="comment" placeholder="Conte como foi sua experiência"></textarea>
+          </label>
+          <label>
+            Avaliação
+            <select name="stars">
+              <option value="5">5 estrelas</option>
+              <option value="4">4 estrelas</option>
+              <option value="3">3 estrelas</option>
+              <option value="2">2 estrelas</option>
+              <option value="1">1 estrela</option>
+            </select>
+          </label>
+          <button class="btn btn-solid" type="submit">Enviar feedback</button>
+        </form>
+
+        <div id="feedback-list" class="feedback-list reveal" data-feedback-list>
+          <article>
+            <strong>Mariana S.</strong>
+            <p>Serviço bem feito e equipe muito educada.</p>
+            <p class="feedback-stars">★★★★★</p>
+          </article>
+          <article>
+            <strong>Felipe R.</strong>
+            <p>A equipe foi pontual e cuidadosa com todos os ambientes.</p>
+            <p class="feedback-stars">★★★★★</p>
+          </article>
+          <article>
+            <strong>Ana C.</strong>
+            <p>O orçamento foi claro e o atendimento rápido.</p>
+            <p class="feedback-stars">★★★★★</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work-with-us" class="work-section">
+      <button class="work-back-btn" type="button" aria-label="Voltar para a página inicial" data-back-home>←</button>
+      <div class="work-overlay"></div>
+      <div class="container work-layout">
+        <div class="work-copy reveal">
+          <p class="eyebrow">Ser contratada</p>
+          <h2>Quer trabalhar com a gente?</h2>
+          <p>Preencha seus dados e aguarde nosso contato.</p>
+        </div>
+        <form class="lead-form work-form reveal" data-work-form>
+          <h3>Cadastro de profissional</h3>
+          <label>De onde você é?<input type="text" name="location" placeholder="Cidade e bairro"></label>
+          <label>Nome completo<input type="text" name="name" placeholder="Seu nome"></label>
+          <label>E-mail<input type="email" name="email" placeholder="seu@email.com"></label>
+          <label>Telefone<input type="tel" name="phone" placeholder="(11) 99999-9999" data-phone></label>
+          <label>
+            Qual serviço você presta?
+            <select name="service">
+              <option value="">Selecione...</option>
+              <option>Limpeza residencial</option>
+              <option>Limpeza detalhada</option>
+              <option>Limpeza comercial</option>
+              <option>Limpeza pós-obra</option>
+              <option>Cuidado com idosos</option>
+            </select>
+          </label>
+          <button class="btn btn-light" type="submit">Enviar cadastro</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+     <button class="work-back-btn" type="button" aria-label="Voltar para a página inicial" data-back-home>←</button>
+      <div class="container contact-layout">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Quero contratar</p>
+          <h2>Solicite seu orçamento</h2>
+          <p>Envie seus dados e abriremos o WhatsApp para agilizar o retorno.</p>
+        </div>
+        <form class="lead-form contact-form reveal" data-contact-form>
+          <h3>Envie sua solicitação</h3>
+          <label>Nome completo<input type="text" name="name" placeholder="Seu nome"></label>
+          <label>E-mail<input type="email" name="email" placeholder="seu@email.com"></label>
+          <label>Telefone<input type="tel" name="phone" placeholder="(11) 99999-9999" data-phone></label>
+          <label>De onde você é?<input type="text" name="location" placeholder="Cidade e bairro"></label>
+          <label>
+            Tipo de serviço
+            <select name="service">
+              <option value="">Selecione...</option>
+              <option>Limpeza residencial</option>
+              <option>Limpeza detalhada</option>
+              <option>Limpeza comercial</option>
+              <option>Limpeza pós-obra</option>
+              <option>Cuidado com idosos</option>
+            </select>
+          </label>
+          <label>
+            Prazo desejado
+            <select name="urgency">
+              <option value="">Selecione...</option>
+              <option>Com urgência</option>
+              <option>Esta semana</option>
+              <option>Apenas orçamento</option>
+            </select>
+          </label>
+          <button class="btn btn-solid" type="submit">Enviar solicitação</button>
+        </form>
+      </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <h2>Onde estamos:</h2>
+      <div class="footer-grid">
+        <div>
+          <h3>Santana de Parnaíba</h3>
+          <p>Atendimento em Alphaville, Tamboré, Itapevi e região.</p>
+        </div>
+        <div>
+          <h3>Contato</h3>
+          <p>WhatsApp: +55 (11) 98318-4154<br>Segunda a sexta, das 8h às 18h.</p>
+        </div>
+        <div>
+          <h3>Siga a gente!</h3>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </div>
+      <form class="newsletter-form" data-newsletter-form>
+        <input type="email" name="email" placeholder="E-mail" aria-label="E-mail para inscrição">
+        <button type="submit">Se inscreva!</button>
+      </form>
+      <p class="copyright">Copyright 2026 © Todos os direitos reservados. Criado para Grupo Assis Serviços.</p>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5511983184154?text=Ol%C3%A1%21%20Vim%20pelo%20site%20mobile%20do%20Grupo%20Assis%20Servi%C3%A7os." target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+    <span>WhatsApp</span>
+  </a>
+  <button class="back-top" type="button" aria-label="Voltar ao topo" data-back-top>↑</button>
+  <div id="site-toast" class="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
