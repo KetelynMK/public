@@ -102,7 +102,7 @@ Foi criada uma adaptação específica para telas menores, garantindo:
 
 Projeto publicado:
 
-🔗 https://public-kappa-taupe.vercel.app/
+🔗 https://grupo-assis.vercel.app/
 
 ---
 
