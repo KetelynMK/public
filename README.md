@@ -34,10 +34,11 @@ O principal objetivo deste projeto foi criar uma plataforma digital onde a empre
 
 ## Front-end
 
-- HTML5
-- CSS3
-- JavaScript
-
+- HTML5;
+- CSS3;
+- JavaScript;
+- Json;
+  
 ## Recursos aplicados
 
 - Estruturação semântica de páginas
