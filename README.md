@@ -13,7 +13,7 @@
 
 Este projeto consiste no desenvolvimento de um **site institucional para uma empresa real de serviços**, criado com o objetivo de apresentar seus serviços, facilitar o contato com clientes e proporcionar uma presença digital moderna.
 
-O desenvolvimento foi realizado utilizando **HTML5, CSS3 e JavaScript**, buscando criar uma interface profissional, intuitiva e adaptável para diferentes dispositivos.
+O desenvolvimento foi realizado utilizando **HTML5, CSS3, JavaScript e JSON**, buscando criar uma interface profissional, intuitiva e adaptável para diferentes dispositivos.
 
 O projeto foi pensado para oferecer uma navegação simples, organizada e com foco na experiência do usuário.
 
