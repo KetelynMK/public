@@ -65,7 +65,7 @@ Foi criada uma adaptação específica para telas menores, garantindo:
 - Melhor organização dos elementos
 - Facilidade de navegação pelo celular
 - Visual mais limpo e agradável
-- Melhor experiência para o usuário
+- Melhor experiência para o usuário e contratante
 
 ---
 
