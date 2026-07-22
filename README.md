@@ -1,128 +1,109 @@
-# 🚀 Grupo Assis - Serviços de Limpesa Profissional 🧹✨
+# Grupo Assis - Serviços de Limpeza Profissional 🧹✨
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Status-Em%20desenvolvimento-blue" />
-  <img src="https://img.shields.io/badge/HTML5-orange" />
-  <img src="https://img.shields.io/badge/CSS3-blue" />
-  <img src="https://img.shields.io/badge/JavaScript-yellow" />
-</p>
+![Status](https://img.shields.io/badge/status-concluído-success)
+![Next.js](https://img.shields.io/badge/Next.js-16.2-black)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+![Framer Motion](https://img.shields.io/badge/Animations-Framer%20Motion-purple)
 
----
+## 📌 Sobre o Projeto
 
-## 🏢 Sobre o Projeto
-O **Grupo Assis** é uma aplicação web desenvolvida para presentar serviços profissionais de limpeza residencial e empresarial, oferecendo uma expleriência moderna, resposiva e intuitiva para os usuários.
+O **Grupo Assis** é uma aplicação web desenvolvida para apresentar serviços profissionais de limpeza residencial e empresarial, oferecendo uma experiência moderna, responsiva e intuitiva para os usuários.
 
-O projeto foi desenvolvido utilizando tecnologias atuais do desenvolvimento Front-end, com foco em **performace, organização de código, experiência do  usuário e boas práticas de desenvolvimento web**.
+O projeto foi desenvolvido utilizando tecnologias atuais do desenvolvimento Front-end, com foco em **performance, organização de código, experiência do usuário e boas práticas de desenvolvimento web**.
 
 ---
 
-# 💻 Tecnologias utilizadas
+## 🚀 Tecnologias Utilizadas
 
-## Front-end
+### Front-end
 
-- HTML5;
-- CSS3;
-- JavaScript;
-- Json;
-  
-## Recursos aplicados
+- **Next.js 16.2**
+  - Estrutura moderna baseada em React
+  - Melhor performance e otimização
+  - Organização utilizando App Router
 
-- Estruturação semântica de páginas
-- Design responsivo
-- Organização de seções
-- Interações utilizando JavaScript
-- Layout adaptável para diferentes telas
-- Melhor experiência de navegação
+- **JavaScript (ES6+)**
+  - Manipulação de dados
+  - Lógica de programação
+  - Interações dinâmicas
 
----
+- **CSS**
+  - Estilização responsiva
+  - Layout adaptável para diferentes dispositivos
 
-# 📱 Responsividade
 
-O projeto foi desenvolvido pensando em diferentes dispositivos:
+### Bibliotecas
 
-### 🖥️ Computadores
+- **Framer Motion**
+  - Animações suaves
+  - Transições de componentes
+  - Melhor experiência visual
 
-Layout estruturado para telas maiores, permitindo uma melhor apresentação dos serviços e informações da empresa.
+- **Lucide React**
+  - Biblioteca de ícones modernos e leves
 
-### 📱 Dispositivos móveis
 
-Foi criada uma adaptação específica para telas menores, garantindo:
+### Integrações
 
-- Melhor organização dos elementos
-- Facilidade de navegação pelo celular
-- Visual mais limpo e agradável
-- Melhor experiência para o usuário e contratante
-
----
-
-# 📂 Estrutura do Projeto
-
-```
-📁 Empresa-Assis-Servicos
-│
-├── index.html
-├── mobile.html
-│
-├── 📁 imagens
-│
-├── script.js
-│
-├── styles.css
-│
-└── README.md
-```
+- Consumo de API no Front-end
+- Manipulação de dados utilizando React Hooks
+- Componentização de elementos reutilizáveis
 
 ---
 
 # ✨ Funcionalidades
 
-✔️ Página institucional da empresa  
-✔️ Apresentação dos serviços oferecidos  
-✔️ Sessões organizadas para informações importantes  
-✔️ Botões e links funcionais  
-✔️ Interface responsiva  
-✔️ Layout desenvolvido pensando no usuário  
+✔ Design responsivo para desktop, tablet e mobile
+
+✔ Animações modernas utilizando Framer Motion
+
+✔ Componentes reutilizáveis
+
+✔ Consumo de API para carregamento de informações
+
+✔ Manipulação dinâmica de dados
+
+✔ SEO otimizado utilizando recursos do Next.js
+
+✔ Interface moderna e acessível
 
 ---
 
-# 🌐 Deploy
+# 🎯 Objetivo
 
-Projeto publicado:
+O objetivo deste projeto foi desenvolver uma aplicação profissional para uma empresa de serviços, aplicando conceitos utilizados no mercado de trabalho, como:
 
-🔗 https://grupo-assis.vercel.app/
-
----
-
-# 📚 Aprendizados
-
-Durante o desenvolvimento deste projeto foram aplicados conhecimentos de:
-
-- Desenvolvimento Front-end
-- Criação de interfaces responsivas
-- Organização de arquivos
-- Estruturação de páginas web
-- Manipulação de elementos com JavaScript
-- Publicação de aplicações utilizando Vercel
+- Arquitetura de componentes
+- Organização de pastas
+- Performance
+- SEO
+- Integração com APIs
+- Experiência do usuário (UX/UI)
 
 ---
 
-# 🚀 Próximas melhorias
+# 📱 Responsividade
 
-Algumas melhorias futuras planejadas:
+O projeto foi desenvolvido pensando em diferentes tamanhos de tela, garantindo uma boa experiência em:
 
-- Integração com banco de dados
-- Área administrativa para atualização de conteúdos
-- Melhorias de SEO
-- Novas funcionalidades para interação com clientes
-
----
-
-# 👩‍💻 Desenvolvido por
-
-**Ketelyn Assis**
-
-Estudante de Análise e Desenvolvimento de Sistemas (ADS), focada em desenvolvimento web e criação de soluções digitais.
+- Computadores
+- Tablets
+- Smartphones
 
 ---
 
-⭐ Projeto desenvolvido com foco em aprendizado, evolução profissional e criação de aplicações reais.
+# 👨‍💻 Desenvolvedor
+
+Desenvolvido por **Ketelyn MK**
+
+Front-end Developer em formação, focado em criar aplicações modernas utilizando tecnologias como:
+
+- HTML5
+- CSS3
+- JavaScript
+- React
+- Next.js
+
+---
+
+⭐ Caso tenha gostado do projeto, deixe uma estrela no repositório!
