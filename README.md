@@ -1,4 +1,4 @@
-# 🚀 Empresa Assis Serviços
+# 🚀 Grupo Assis - Serviços de Limpesa Profissional 🧹✨
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Em%20desenvolvimento-blue" />
@@ -10,23 +10,9 @@
 ---
 
 ## 🏢 Sobre o Projeto
+O **Grupo Assis** é uma aplicação web desenvolvida para presentar serviços profissionais de limpeza residencial e empresarial, oferecendo uma expleriência moderna, resposiva e intuitiva para os usuários.
 
-Este projeto consiste no desenvolvimento de um **site institucional para uma empresa real de serviços**, criado com o objetivo de apresentar seus serviços, facilitar o contato com clientes e proporcionar uma presença digital moderna.
-
-O desenvolvimento foi realizado utilizando **HTML5, CSS3, JavaScript e JSON**, buscando criar uma interface profissional, intuitiva e adaptável para diferentes dispositivos.
-
-O projeto foi pensado para oferecer uma navegação simples, organizada e com foco na experiência do usuário.
-
----
-
-# 🎯 Objetivo
-
-O principal objetivo deste projeto foi criar uma plataforma digital onde a empresa pudesse:
-
-✅ Apresentar seus serviços de forma profissional  
-✅ Aumentar sua presença online  
-✅ Facilitar o contato com novos clientes  
-✅ Ter um site moderno e responsivo  
+O projeto foi desenvolvido utilizando tecnologias atuais do desenvolvimento Front-end, com foco em **performace, organização de código, experiência do  usuário e boas práticas de desenvolvimento web**.
 
 ---
 
