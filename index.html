@@ -16,6 +16,12 @@ const track = document.getElementById("carouselTrack");
 const slides = document.querySelectorAll(".servico-slide");
 const dotsContainer = document.getElementById("carouselDots");
 
+let slideAtual = 0;
+
+
+/* =========================================
+   QUANTIDADE DE CARDS VISÍVEIS
+========================================= */
 
 function quantidadeVisivel() {
 
@@ -31,14 +37,24 @@ function quantidadeVisivel() {
 }
 
 
+/* =========================================
+   TOTAL DE MOVIMENTAÇÕES
+========================================= */
+
 function totalPaginas() {
 
-    return Math.ceil(
-        slides.length / quantidadeVisivel()
-    );
+    const visiveis = quantidadeVisivel();
 
+    return Math.max(
+        1,
+        slides.length - visiveis + 1
+    );
 }
 
+
+/* =========================================
+   CRIAR BOLINHAS
+========================================= */
 
 function criarDots() {
 
@@ -56,16 +72,22 @@ function criarDots() {
             dot.classList.add("active");
         }
 
-        dot.onclick = function () {
+        dot.addEventListener("click", function () {
+
             slideAtual = i;
+
             atualizarCarrossel();
-        };
+
+        });
 
         dotsContainer.appendChild(dot);
     }
-
 }
 
+
+/* =========================================
+   MOVER CARROSSEL
+========================================= */
 
 function moverCarrossel(direcao) {
 
@@ -73,18 +95,32 @@ function moverCarrossel(direcao) {
 
     slideAtual += direcao;
 
+
+    /* VOLTA PARA O ÚLTIMO */
+
     if (slideAtual < 0) {
+
         slideAtual = total - 1;
+
     }
+
+
+    /* VOLTA PARA O PRIMEIRO */
 
     if (slideAtual >= total) {
+
         slideAtual = 0;
+
     }
 
-    atualizarCarrossel();
 
+    atualizarCarrossel();
 }
 
+
+/* =========================================
+   ATUALIZAR POSIÇÃO
+========================================= */
 
 function atualizarCarrossel() {
 
@@ -92,27 +128,41 @@ function atualizarCarrossel() {
 
     const porcentagem = 100 / visiveis;
 
+
     track.style.transform =
-        `translateX(-${slideAtual * 100}%)`;
+        `translateX(-${slideAtual * porcentagem}%)`;
 
-    document
-        .querySelectorAll(".carousel-dot")
-        .forEach((dot, index) => {
 
-            dot.classList.toggle(
-                "active",
-                index === slideAtual
-            );
+    /* ATUALIZA AS BOLINHAS */
 
-        });
+    const dots =
+        document.querySelectorAll(".carousel-dot");
 
+
+    dots.forEach((dot, index) => {
+
+        dot.classList.toggle(
+            "active",
+            index === slideAtual
+        );
+
+    });
 }
 
 
-/* INICIALIZA */
+/* =========================================
+   INICIAR
+========================================= */
 
 criarDots();
-/* ATUALIZA AO REDIMENSIONAR */
+
+atualizarCarrossel();
+
+
+/* =========================================
+   QUANDO REDIMENSIONAR A TELA
+========================================= */
+
 window.addEventListener("resize", function () {
 
     slideAtual = 0;
