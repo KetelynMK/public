@@ -1,181 +1,314 @@
-// ==========================================
-// CARROSSEL DE SERVIÇOS - GRUPO ASSIS
-// ==========================================
+document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener("DOMContentLoaded", function () {
+    /* =========================================
+       CARROSSEL DE SERVIÇOS
+    ========================================= */
 
-    // Elementos do carrossel
     const carousel = document.querySelector(".carousel");
     const track = document.querySelector(".carousel-track");
     const slides = document.querySelectorAll(".servico-slide");
-
     const prevButton = document.querySelector(".carousel-btn.prev");
     const nextButton = document.querySelector(".carousel-btn.next");
-
     const dotsContainer = document.querySelector(".carousel-dots");
 
-
-    // ==========================================
-    // VERIFICAÇÃO
-    // ==========================================
-
-    if (!carousel || !track || slides.length === 0) {
-
-        console.log("Carrossel não encontrado.");
-
+    // Se algum elemento não existir, não executa o carrossel
+    if (
+        !carousel ||
+        !track ||
+        slides.length === 0 ||
+        !prevButton ||
+        !nextButton
+    ) {
+        console.warn("Elementos do carrossel não encontrados.");
         return;
     }
 
-
-    // ==========================================
-    // CONFIGURAÇÃO
-    // ==========================================
-
     let currentIndex = 0;
 
-    const totalSlides = slides.length;
+    /* =========================================
+       QUANTOS CARDS APARECEM
+    ========================================= */
 
+    function getVisibleSlides() {
+        const width = window.innerWidth;
 
-    // ==========================================
-    // CRIAR AS BOLINHAS
-    // ==========================================
+        if (width <= 600) {
+            return 1;
+        }
 
-    if (dotsContainer) {
+        if (width <= 900) {
+            return 2;
+        }
+
+        return 3;
+    }
+
+    /* =========================================
+       TOTAL DE MOVIMENTOS POSSÍVEIS
+    ========================================= */
+
+    function getMaxIndex() {
+        const visibleSlides = getVisibleSlides();
+
+        return Math.max(
+            0,
+            slides.length - visibleSlides
+        );
+    }
+
+    /* =========================================
+       CRIAR AS BOLINHAS
+    ========================================= */
+
+    function createDots() {
+
+        if (!dotsContainer) {
+            return;
+        }
 
         dotsContainer.innerHTML = "";
 
-        slides.forEach(function (slide, index) {
+        const maxIndex = getMaxIndex();
+
+        for (let i = 0; i <= maxIndex; i++) {
 
             const dot = document.createElement("button");
 
             dot.type = "button";
-
-            dot.classList.add("carousel-dot");
+            dot.className = "carousel-dot";
 
             dot.setAttribute(
                 "aria-label",
-                "Ir para o serviço " + (index + 1)
+                `Ir para o serviço ${i + 1}`
             );
 
+            if (i === currentIndex) {
+                dot.classList.add("active");
+            }
 
-            // Clique na bolinha
-            dot.addEventListener("click", function () {
-
-                currentIndex = index;
-
-                atualizarCarrossel();
-
+            dot.addEventListener("click", () => {
+                currentIndex = i;
+                updateCarousel();
             });
 
-
             dotsContainer.appendChild(dot);
-
-        });
-
+        }
     }
 
+    /* =========================================
+       ATUALIZAR CARROSSEL
+    ========================================= */
 
-    // ==========================================
-    // ATUALIZAR CARROSSEL
-    // ==========================================
+    function updateCarousel() {
 
-    function atualizarCarrossel() {
+        const maxIndex = getMaxIndex();
 
-        // Move o carrossel
-        const deslocamento = currentIndex * 100;
+        // Impede que o índice fique inválido
+        if (currentIndex > maxIndex) {
+            currentIndex = maxIndex;
+        }
 
-        track.style.transform =
-            `translateX(-${deslocamento}%)`;
+        if (currentIndex < 0) {
+            currentIndex = 0;
+        }
 
+        /*
+           Pega a posição real do card.
+           Isso evita problemas de porcentagem
+           quando existe gap entre os cards.
+        */
 
-        // Atualiza as bolinhas
-        const dots =
-            document.querySelectorAll(".carousel-dot");
+        const activeSlide = slides[currentIndex];
 
+        if (activeSlide) {
 
-        dots.forEach(function (dot, index) {
+            const position = activeSlide.offsetLeft;
 
-            if (index === currentIndex) {
+            track.style.transform =
+                `translateX(-${position}px)`;
+        }
 
-                dot.classList.add("active");
+        /* Atualiza as bolinhas */
 
-            } else {
+        if (dotsContainer) {
 
-                dot.classList.remove("active");
+            const dots =
+                dotsContainer.querySelectorAll(".carousel-dot");
 
-            }
+            dots.forEach((dot, index) => {
 
-        });
+                dot.classList.toggle(
+                    "active",
+                    index === currentIndex
+                );
 
+            });
+        }
 
-        // Acessibilidade
-        slides.forEach(function (slide, index) {
+        /* Ativa/desativa as setas */
 
-            if (index === currentIndex) {
+        prevButton.disabled =
+            currentIndex === 0;
 
-                slide.setAttribute("aria-hidden", "false");
+        nextButton.disabled =
+            currentIndex >= maxIndex;
 
-            } else {
+        /* Acessibilidade */
 
-                slide.setAttribute("aria-hidden", "true");
+        prevButton.setAttribute(
+            "aria-disabled",
+            currentIndex === 0
+        );
 
-            }
-
-        });
-
+        nextButton.setAttribute(
+            "aria-disabled",
+            currentIndex >= maxIndex
+        );
     }
 
+    /* =========================================
+       BOTÃO ANTERIOR
+    ========================================= */
 
-    // ==========================================
-    // BOTÃO ANTERIOR
-    // ==========================================
+    prevButton.addEventListener("click", () => {
 
-    if (prevButton) {
-
-        prevButton.addEventListener("click", function () {
+        if (currentIndex > 0) {
 
             currentIndex--;
 
-            if (currentIndex < 0) {
+            updateCarousel();
+        }
+    });
 
-                currentIndex = totalSlides - 1;
+    /* =========================================
+       BOTÃO PRÓXIMO
+    ========================================= */
 
-            }
+    nextButton.addEventListener("click", () => {
 
-            atualizarCarrossel();
+        const maxIndex = getMaxIndex();
 
-        });
-
-    }
-
-
-    // ==========================================
-    // BOTÃO PRÓXIMO
-    // ==========================================
-
-    if (nextButton) {
-
-        nextButton.addEventListener("click", function () {
+        if (currentIndex < maxIndex) {
 
             currentIndex++;
 
-            if (currentIndex >= totalSlides) {
+            updateCarousel();
+        }
+    });
 
-                currentIndex = 0;
+    /* =========================================
+       TECLADO
+    ========================================= */
 
+    carousel.addEventListener("keydown", (event) => {
+
+        if (event.key === "ArrowLeft") {
+
+            if (currentIndex > 0) {
+
+                currentIndex--;
+
+                updateCarousel();
+            }
+        }
+
+        if (event.key === "ArrowRight") {
+
+            const maxIndex = getMaxIndex();
+
+            if (currentIndex < maxIndex) {
+
+                currentIndex++;
+
+                updateCarousel();
+            }
+        }
+    });
+
+    carousel.setAttribute("tabindex", "0");
+
+    /* =========================================
+       ARRASTAR NO CELULAR
+    ========================================= */
+
+    let startX = 0;
+    let endX = 0;
+
+    track.addEventListener(
+        "touchstart",
+        (event) => {
+
+            startX =
+                event.touches[0].clientX;
+        },
+        { passive: true }
+    );
+
+    track.addEventListener(
+        "touchend",
+        (event) => {
+
+            endX =
+                event.changedTouches[0].clientX;
+
+            const difference =
+                startX - endX;
+
+            const minimumSwipe = 50;
+
+            // Arrastou para a esquerda
+            if (difference > minimumSwipe) {
+
+                const maxIndex =
+                    getMaxIndex();
+
+                if (currentIndex < maxIndex) {
+
+                    currentIndex++;
+
+                    updateCarousel();
+                }
             }
 
-            atualizarCarrossel();
+            // Arrastou para a direita
+            if (difference < -minimumSwipe) {
 
-        });
+                if (currentIndex > 0) {
 
-    }
+                    currentIndex--;
 
+                    updateCarousel();
+                }
+            }
 
-    // ==========================================
-    // INICIAR
-    // ==========================================
+        },
+        { passive: true }
+    );
 
-    atualizarCarrossel();
+    /* =========================================
+       REDIMENSIONAMENTO DA TELA
+    ========================================= */
+
+    let resizeTimer;
+
+    window.addEventListener("resize", () => {
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer = setTimeout(() => {
+
+            createDots();
+            updateCarousel();
+
+        }, 150);
+    });
+
+    /* =========================================
+       INICIALIZAÇÃO
+    ========================================= */
+
+    createDots();
+
+    updateCarousel();
 
 });
