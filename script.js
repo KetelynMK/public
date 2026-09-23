@@ -1,131 +1,181 @@
-
-// ========================================
-// CARROSSEL DE SERVIÇOS
-// ========================================
+// ==========================================
+// CARROSSEL DE SERVIÇOS - GRUPO ASSIS
+// ==========================================
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const servicos = document.querySelectorAll(".servico-slide");
+    // Elementos do carrossel
+    const carousel = document.querySelector(".carousel");
+    const track = document.querySelector(".carousel-track");
+    const slides = document.querySelectorAll(".servico-slide");
 
-    const botaoAnterior = document.querySelector(".seta-esquerda");
-    const botaoProximo = document.querySelector(".seta-direita");
+    const prevButton = document.querySelector(".carousel-btn.prev");
+    const nextButton = document.querySelector(".carousel-btn.next");
 
-    const indicadores = document.querySelector(".indicadores");
-
-    let indiceAtual = 0;
+    const dotsContainer = document.querySelector(".carousel-dots");
 
 
-    // Se não encontrar os serviços, não faz nada
-    if (servicos.length === 0) {
+    // ==========================================
+    // VERIFICAÇÃO
+    // ==========================================
+
+    if (!carousel || !track || slides.length === 0) {
+
+        console.log("Carrossel não encontrado.");
+
         return;
     }
 
 
-    // ========================================
-    // MOSTRAR SERVIÇO
-    // ========================================
+    // ==========================================
+    // CONFIGURAÇÃO
+    // ==========================================
 
-    function mostrarServico(indice) {
+    let currentIndex = 0;
 
-        // Garante que o índice fique dentro dos limites
-        if (indice < 0) {
-            indiceAtual = servicos.length - 1;
-        }
-
-        else if (indice >= servicos.length) {
-            indiceAtual = 0;
-        }
-
-        else {
-            indiceAtual = indice;
-        }
+    const totalSlides = slides.length;
 
 
-        // Esconde todos os serviços
-        servicos.forEach(function (servico) {
-            servico.style.display = "none";
+    // ==========================================
+    // CRIAR AS BOLINHAS
+    // ==========================================
+
+    if (dotsContainer) {
+
+        dotsContainer.innerHTML = "";
+
+        slides.forEach(function (slide, index) {
+
+            const dot = document.createElement("button");
+
+            dot.type = "button";
+
+            dot.classList.add("carousel-dot");
+
+            dot.setAttribute(
+                "aria-label",
+                "Ir para o serviço " + (index + 1)
+            );
+
+
+            // Clique na bolinha
+            dot.addEventListener("click", function () {
+
+                currentIndex = index;
+
+                atualizarCarrossel();
+
+            });
+
+
+            dotsContainer.appendChild(dot);
+
         });
 
-
-        // Mostra o serviço atual
-        servicos[indiceAtual].style.display = "block";
-
-
-        // Atualiza os indicadores
-        atualizarIndicadores();
     }
 
 
-    // ========================================
-    // INDICADORES
-    // ========================================
+    // ==========================================
+    // ATUALIZAR CARROSSEL
+    // ==========================================
 
-    function atualizarIndicadores() {
+    function atualizarCarrossel() {
 
-        if (!indicadores) {
-            return;
-        }
+        // Move o carrossel
+        const deslocamento = currentIndex * 100;
 
-        const pontos = indicadores.querySelectorAll("span");
+        track.style.transform =
+            `translateX(-${deslocamento}%)`;
 
-        pontos.forEach(function (ponto, indice) {
 
-            if (indice === indiceAtual) {
-                ponto.classList.add("ativo");
+        // Atualiza as bolinhas
+        const dots =
+            document.querySelectorAll(".carousel-dot");
+
+
+        dots.forEach(function (dot, index) {
+
+            if (index === currentIndex) {
+
+                dot.classList.add("active");
+
             } else {
-                ponto.classList.remove("ativo");
+
+                dot.classList.remove("active");
+
             }
 
         });
-    }
 
 
-    // ========================================
-    // SETA ESQUERDA
-    // ========================================
+        // Acessibilidade
+        slides.forEach(function (slide, index) {
 
-    if (botaoAnterior) {
+            if (index === currentIndex) {
 
-        botaoAnterior.addEventListener("click", function () {
+                slide.setAttribute("aria-hidden", "false");
 
-            indiceAtual--;
+            } else {
 
-            if (indiceAtual < 0) {
-                indiceAtual = servicos.length - 1;
+                slide.setAttribute("aria-hidden", "true");
+
             }
-
-            mostrarServico(indiceAtual);
-
-        });
-
-    }
-
-
-    // ========================================
-    // SETA DIREITA
-    // ========================================
-
-    if (botaoProximo) {
-
-        botaoProximo.addEventListener("click", function () {
-
-            indiceAtual++;
-
-            if (indiceAtual >= servicos.length) {
-                indiceAtual = 0;
-            }
-
-            mostrarServico(indiceAtual);
 
         });
 
     }
 
 
-    // ========================================
-    // INICIAR CARROSSEL
-    // ========================================
+    // ==========================================
+    // BOTÃO ANTERIOR
+    // ==========================================
 
-    mostrarServico(0);
+    if (prevButton) {
+
+        prevButton.addEventListener("click", function () {
+
+            currentIndex--;
+
+            if (currentIndex < 0) {
+
+                currentIndex = totalSlides - 1;
+
+            }
+
+            atualizarCarrossel();
+
+        });
+
+    }
+
+
+    // ==========================================
+    // BOTÃO PRÓXIMO
+    // ==========================================
+
+    if (nextButton) {
+
+        nextButton.addEventListener("click", function () {
+
+            currentIndex++;
+
+            if (currentIndex >= totalSlides) {
+
+                currentIndex = 0;
+
+            }
+
+            atualizarCarrossel();
+
+        });
+
+    }
+
+
+    // ==========================================
+    // INICIAR
+    // ==========================================
+
+    atualizarCarrossel();
 
 });
