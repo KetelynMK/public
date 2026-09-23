@@ -774,6 +774,35 @@ next.addEventListener("click", function () {
 
 
   <script src="script.js"></script>
+  <script>
+
+const carouselWindow = document.querySelector(".carousel-window");
+
+const botaoAnterior = document.querySelector(".carousel-btn.prev");
+
+const botaoProximo = document.querySelector(".carousel-btn.next");
+
+
+botaoAnterior.addEventListener("click", function () {
+
+    carouselWindow.scrollBy({
+        left: -380,
+        behavior: "smooth"
+    });
+
+});
+
+
+botaoProximo.addEventListener("click", function () {
+
+    carouselWindow.scrollBy({
+        left: 380,
+        behavior: "smooth"
+    });
+
+});
+
+</script>
 </body>
 </html>
 
