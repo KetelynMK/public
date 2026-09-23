@@ -10,7 +10,122 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+<script>
 
+let slideAtual = 0;
+
+const track = document.getElementById("carouselTrack");
+const slides = document.querySelectorAll(".servico-slide");
+const dotsContainer = document.getElementById("carouselDots");
+
+
+function quantidadeVisivel() {
+
+    if (window.innerWidth <= 700) {
+        return 1;
+    }
+
+    if (window.innerWidth <= 1000) {
+        return 2;
+    }
+
+    return 3;
+}
+
+
+function totalPaginas() {
+
+    return Math.ceil(
+        slides.length / quantidadeVisivel()
+    );
+
+}
+
+
+function criarDots() {
+
+    dotsContainer.innerHTML = "";
+
+    const total = totalPaginas();
+
+    for (let i = 0; i < total; i++) {
+
+        const dot = document.createElement("button");
+
+        dot.classList.add("carousel-dot");
+
+        if (i === slideAtual) {
+            dot.classList.add("active");
+        }
+
+        dot.onclick = function () {
+            slideAtual = i;
+            atualizarCarrossel();
+        };
+
+        dotsContainer.appendChild(dot);
+    }
+
+}
+
+
+function moverCarrossel(direcao) {
+
+    const total = totalPaginas();
+
+    slideAtual += direcao;
+
+    if (slideAtual < 0) {
+        slideAtual = total - 1;
+    }
+
+    if (slideAtual >= total) {
+        slideAtual = 0;
+    }
+
+    atualizarCarrossel();
+
+}
+
+
+function atualizarCarrossel() {
+
+    const visiveis = quantidadeVisivel();
+
+    const porcentagem = 100 / visiveis;
+
+    track.style.transform =
+        `translateX(-${slideAtual * 100}%)`;
+
+    document
+        .querySelectorAll(".carousel-dot")
+        .forEach((dot, index) => {
+
+            dot.classList.toggle(
+                "active",
+                index === slideAtual
+            );
+
+        });
+
+}
+
+
+/* INICIALIZA */
+
+criarDots();
+/* ATUALIZA AO REDIMENSIONAR */
+window.addEventListener("resize", function () {
+
+    slideAtual = 0;
+
+    criarDots();
+
+    atualizarCarrossel();
+
+});
+
+</script>
 <body>
   <!-- HEADER -->
   <header class="header" id="header">
