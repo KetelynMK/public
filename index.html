@@ -10,6 +10,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+  <script>
+const track = document.getElementById("carouselTrack");
+const prev = document.querySelector(".carousel-btn.prev");
+const next = document.querySelector(".carousel-btn.next");
+
+function moverCarrossel(direcao) {
+    const card = track.querySelector(".servico-slide");
+
+    if (!card) return;
+
+    const largura = card.offsetWidth;
+
+    const estilo = window.getComputedStyle(track);
+    const gap = parseInt(estilo.gap) || 0;
+
+    track.parentElement.scrollBy({
+        left: direcao * (largura + gap),
+        behavior: "smooth"
+    });
+}
+
+prev.addEventListener("click", function () {
+    moverCarrossel(-1);
+});
+
+next.addEventListener("click", function () {
+    moverCarrossel(1);
+});
+</script>
+  
 <body>
   <!-- HEADER -->
   <header class="header" id="header">
