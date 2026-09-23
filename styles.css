@@ -957,3 +957,305 @@ textarea {
     background: #2476ad;
 }
 }
+/* ==================================================
+   CORREÇÃO DO CARROSSEL
+================================================== */
+
+.carousel {
+    position: relative;
+    width: 100%;
+}
+
+.carousel-window {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.servico-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* ==================================================
+   SETAS DO CARROSSEL
+================================================== */
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 58px;
+    height: 58px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #174b7a;
+    color: white;
+
+    font-size: 35px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* SETA ESQUERDA */
+
+.carousel-btn.prev {
+    left: -30px;
+}
+
+
+/* SETA DIREITA */
+
+.carousel-btn.next {
+    right: -30px;
+}
+
+
+/* ==================================================
+   BOLINHAS
+================================================== */
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #cbd5e1;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+    width: 35px;
+
+    border-radius: 20px;
+
+    background: #2476ad;
+}
+
+
+/* ==================================================
+   IMAGENS DOS SERVIÇOS
+================================================== */
+
+.servico-slide img {
+    display: block;
+
+    width: 100%;
+
+    height: 400px;
+
+    object-fit: cover;
+}
+
+
+/* ==================================================
+   CELULAR / MOBILE
+================================================== */
+
+@media (max-width: 768px) {
+
+    /* CARROSSEL */
+
+    .carousel {
+        width: 100%;
+
+        padding: 0 28px;
+
+        box-sizing: border-box;
+    }
+
+
+    /* JANELA */
+
+    .carousel-window {
+        width: 100%;
+    }
+
+
+    /* CARD */
+
+    .servico-slide {
+        width: 100%;
+        min-width: 100%;
+
+        border-radius: 25px;
+
+        overflow: hidden;
+    }
+
+
+    /* IMAGEM */
+
+    .servico-slide img {
+
+        width: 100%;
+
+        height: 280px;
+
+        object-fit: cover;
+    }
+
+
+    /* ==================================================
+       SETAS MOBILE
+    ================================================== */
+
+    .carousel-btn {
+
+        width: 52px;
+        height: 52px;
+
+        font-size: 30px;
+
+        top: 50%;
+
+        z-index: 30;
+    }
+
+
+    /* ESQUERDA */
+
+    .carousel-btn.prev {
+
+        left: 5px;
+
+    }
+
+
+    /* DIREITA */
+
+    .carousel-btn.next {
+
+        right: 5px;
+
+    }
+
+
+    /* ==================================================
+       BOLINHAS MOBILE
+    ================================================== */
+
+    .carousel-dots {
+
+        margin-top: 22px;
+
+        gap: 9px;
+
+        flex-wrap: wrap;
+    }
+
+
+    .carousel-dot {
+
+        width: 11px;
+        height: 11px;
+
+    }
+
+
+    .carousel-dot.active {
+
+        width: 32px;
+
+    }
+
+
+    /* ==================================================
+       TÍTULO DA SEÇÃO
+    ================================================== */
+
+    .section-title h2 {
+
+        font-size: 32px;
+
+        line-height: 1.2;
+
+        text-align: center;
+
+    }
+
+
+    .section-title p {
+
+        font-size: 18px;
+
+        line-height: 1.5;
+
+        text-align: center;
+
+        padding: 0 10px;
+
+    }
+
+
+    /* ==================================================
+       INFORMAÇÕES DO SERVIÇO
+    ================================================== */
+
+    .servico-info {
+
+        padding: 25px;
+
+    }
+
+
+    .servico-info h3 {
+
+        font-size: 25px;
+
+        line-height: 1.2;
+
+    }
+
+
+    .servico-info p {
+
+        font-size: 17px;
+
+        line-height: 1.6;
+
+    }
+
+
+    .servico-info strong {
+
+        font-size: 20px;
+
+    }
