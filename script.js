@@ -1,412 +1,190 @@
-document.addEventListener("DOMContentLoaded", () => {
+// ===============================
+// MENU MOBILE
+// ===============================
 
-    /* =========================================
-       MENU MOBILE
-    ========================================= */
+const menuBtn = document.querySelector(".menu-btn");
+const nav = document.querySelector(".nav");
 
-    const menuToggle =
-        document.querySelector(".menu-toggle");
-
-    const nav =
-        document.querySelector(".nav");
-
-
-    if (menuToggle && nav) {
-
-        menuToggle.addEventListener("click", () => {
-
-            const isOpen =
-                nav.classList.toggle("active");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                isOpen
-            );
-
-            menuToggle.textContent =
-                isOpen ? "✕" : "☰";
-        });
+if (menuBtn && nav) {
+    menuBtn.addEventListener("click", () => {
+        nav.classList.toggle("active");
+    });
+}
 
 
-        // Fecha o menu quando clicar em um link
+// ===============================
+// CARROSSEL DE SERVIÇOS
+// ===============================
 
-        const navLinks =
-            nav.querySelectorAll("a");
+const carousel = document.querySelector(".carousel");
+const track = document.querySelector(".carousel-track");
+const slides = document.querySelectorAll(".servico-slide");
+const prevBtn = document.querySelector(".carousel-btn.prev");
+const nextBtn = document.querySelector(".carousel-btn.next");
+const dotsContainer = document.querySelector(".carousel-dots");
 
-        navLinks.forEach((link) => {
-
-            link.addEventListener("click", () => {
-
-                nav.classList.remove("active");
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                menuToggle.textContent = "☰";
-            });
-
-        });
-
-    }
+let currentIndex = 0;
 
 
-    /* =========================================
-       CARROSSEL
-    ========================================= */
+// Verifica se o carrossel existe
+if (carousel && track && slides.length > 0) {
 
-    const carousel =
-        document.querySelector(".carousel");
-
-    const track =
-        document.querySelector(".carousel-track");
-
-    const slides =
-        document.querySelectorAll(".servico-slide");
-
-    const prevButton =
-        document.querySelector(".carousel-btn.prev");
-
-    const nextButton =
-        document.querySelector(".carousel-btn.next");
-
-    const dotsContainer =
-        document.querySelector(".carousel-dots");
-
-
-    // Verificação
-
-    if (
-        !carousel ||
-        !track ||
-        !slides.length ||
-        !prevButton ||
-        !nextButton ||
-        !dotsContainer
-    ) {
-        console.warn(
-            "Carrossel: algum elemento não foi encontrado."
-        );
-
-        return;
-    }
-
-
-    let currentIndex = 0;
-
-
-    /* =========================================
-       QUANTIDADE DE CARDS VISÍVEIS
-    ========================================= */
+    // --------------------------------
+    // Descobre quantos cards aparecem
+    // --------------------------------
 
     function getVisibleSlides() {
-
-        const width =
-            window.innerWidth;
-
-
-        // Celular
-
-        if (width <= 700) {
+        if (window.innerWidth <= 700) {
             return 1;
         }
 
-
-        // Tablet
-
-        if (width <= 1000) {
+        if (window.innerWidth <= 1000) {
             return 2;
         }
-
-
-        // Computador
 
         return 3;
     }
 
 
-    /* =========================================
-       LIMITE DO CARROSSEL
-    ========================================= */
+    // --------------------------------
+    // Quantidade máxima de movimento
+    // --------------------------------
 
     function getMaxIndex() {
-
-        const visible =
-            getVisibleSlides();
-
         return Math.max(
             0,
-            slides.length - visible
+            slides.length - getVisibleSlides()
         );
     }
 
 
-    /* =========================================
-       CRIAR BOLINHAS
-    ========================================= */
+    // --------------------------------
+    // Cria as bolinhas
+    // --------------------------------
 
     function createDots() {
 
+        if (!dotsContainer) return;
+
         dotsContainer.innerHTML = "";
 
+        const maxIndex = getMaxIndex();
 
-        const maxIndex =
-            getMaxIndex();
+        for (let i = 0; i <= maxIndex; i++) {
 
-
-        for (
-            let i = 0;
-            i <= maxIndex;
-            i++
-        ) {
-
-            const dot =
-                document.createElement("button");
-
+            const dot = document.createElement("button");
 
             dot.type = "button";
-
-            dot.className =
-                "carousel-dot";
-
-
-            dot.setAttribute(
-                "aria-label",
-                `Mostrar grupo ${i + 1}`
-            );
-
+            dot.classList.add("carousel-dot");
 
             if (i === currentIndex) {
-
-                dot.classList.add(
-                    "active"
-                );
-
+                dot.classList.add("active");
             }
 
-
-            dot.addEventListener(
-                "click",
-                () => {
-
-                    currentIndex = i;
-
-                    updateCarousel();
-
-                }
-            );
-
+            dot.addEventListener("click", () => {
+                currentIndex = i;
+                updateCarousel();
+            });
 
             dotsContainer.appendChild(dot);
-
         }
-
     }
 
 
-    /* =========================================
-       ATUALIZAR CARROSSEL
-    ========================================= */
+    // --------------------------------
+    // Atualiza posição do carrossel
+    // --------------------------------
 
     function updateCarousel() {
 
-        const maxIndex =
-            getMaxIndex();
+        const maxIndex = getMaxIndex();
 
-
-        // Corrige índice
-
-        if (
-            currentIndex < 0
-        ) {
-
+        // Impede passar do começo
+        if (currentIndex < 0) {
             currentIndex = 0;
-
         }
 
-
-        if (
-            currentIndex > maxIndex
-        ) {
-
-            currentIndex =
-                maxIndex;
-
+        // Impede passar do final
+        if (currentIndex > maxIndex) {
+            currentIndex = maxIndex;
         }
 
+        const slide = slides[currentIndex];
 
-        /*
-            Em vez de calcular porcentagens,
-            usamos a posição real do card.
-            Isso evita problemas com gap.
-        */
-
-        const activeSlide =
-            slides[currentIndex];
+        if (!slide) return;
 
 
-        if (activeSlide) {
+        // Pega a posição real do card
+        const position = slide.offsetLeft;
 
-            const position =
-                activeSlide.offsetLeft;
-
-
-            track.style.transform =
-                `translateX(-${position}px)`;
-
-        }
+        track.style.transform = `translateX(-${position}px)`;
 
 
-        /* Atualiza bolinhas */
+        // Atualiza as bolinhas
 
-        const dots =
-            dotsContainer.querySelectorAll(
-                ".carousel-dot"
+        const dots = document.querySelectorAll(".carousel-dot");
+
+        dots.forEach((dot, index) => {
+
+            dot.classList.toggle(
+                "active",
+                index === currentIndex
             );
 
-
-        dots.forEach(
-            (dot, index) => {
-
-                dot.classList.toggle(
-                    "active",
-                    index === currentIndex
-                );
-
-            }
-        );
+        });
+    }
 
 
-        /* Atualiza seta anterior */
+    // --------------------------------
+    // Botão ANTERIOR
+    // --------------------------------
 
-        prevButton.disabled =
-            currentIndex === 0;
+    if (prevBtn) {
 
+        prevBtn.addEventListener("click", () => {
 
-        /* Atualiza seta próxima */
+            currentIndex--;
 
-        nextButton.disabled =
-            currentIndex >= maxIndex;
+            updateCarousel();
+
+        });
 
     }
 
 
-    /* =========================================
-       SETA ANTERIOR
-    ========================================= */
+    // --------------------------------
+    // Botão PRÓXIMO
+    // --------------------------------
 
-    prevButton.addEventListener(
-        "click",
-        () => {
+    if (nextBtn) {
 
-            if (currentIndex > 0) {
+        nextBtn.addEventListener("click", () => {
 
-                currentIndex--;
+            currentIndex++;
 
-                updateCarousel();
+            updateCarousel();
 
-            }
+        });
 
-        }
-    );
+    }
 
 
-    /* =========================================
-       SETA PRÓXIMA
-    ========================================= */
+    // --------------------------------
+    // Arrastar no celular
+    // --------------------------------
 
-    nextButton.addEventListener(
-        "click",
-        () => {
-
-            const maxIndex =
-                getMaxIndex();
-
-
-            if (
-                currentIndex < maxIndex
-            ) {
-
-                currentIndex++;
-
-                updateCarousel();
-
-            }
-
-        }
-    );
-
-
-    /* =========================================
-       TECLADO
-    ========================================= */
-
-    carousel.addEventListener(
-        "keydown",
-        (event) => {
-
-            if (
-                event.key === "ArrowLeft"
-            ) {
-
-                if (
-                    currentIndex > 0
-                ) {
-
-                    currentIndex--;
-
-                    updateCarousel();
-
-                }
-
-            }
-
-
-            if (
-                event.key === "ArrowRight"
-            ) {
-
-                const maxIndex =
-                    getMaxIndex();
-
-
-                if (
-                    currentIndex < maxIndex
-                ) {
-
-                    currentIndex++;
-
-                    updateCarousel();
-
-                }
-
-            }
-
-        }
-    );
-
-
-    /* =========================================
-       SWIPE / ARRASTAR NO CELULAR
-    ========================================= */
-
-    let startX = 0;
-
-    let endX = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
 
 
     track.addEventListener(
         "touchstart",
         (event) => {
 
-            startX =
-                event.touches[0].clientX;
+            touchStartX = event.touches[0].clientX;
 
         },
-        {
-            passive: true
-        }
+        { passive: true }
     );
 
 
@@ -414,82 +192,115 @@ document.addEventListener("DOMContentLoaded", () => {
         "touchend",
         (event) => {
 
-            endX =
-                event.changedTouches[0].clientX;
+            touchEndX = event.changedTouches[0].clientX;
 
-
-            const difference =
-                startX - endX;
-
-
-            const minimumSwipe = 50;
-
+            const difference = touchStartX - touchEndX;
 
             // Arrastou para esquerda
+            if (difference > 50) {
 
-            if (
-                difference >
-                minimumSwipe
-            ) {
+                currentIndex++;
 
-                const maxIndex =
-                    getMaxIndex();
-
-
-                if (
-                    currentIndex <
-                    maxIndex
-                ) {
-
-                    currentIndex++;
-
-                    updateCarousel();
-
-                }
+                updateCarousel();
 
             }
 
-
             // Arrastou para direita
+            if (difference < -50) {
 
-            if (
-                difference <
-                -minimumSwipe
-            ) {
+                currentIndex--;
 
-                if (
-                    currentIndex > 0
-                ) {
-
-                    currentIndex--;
-
-                    updateCarousel();
-
-                }
+                updateCarousel();
 
             }
 
         },
-        {
-            passive: true
-        }
+        { passive: true }
     );
 
 
-    /* =========================================
-       REDIMENSIONAMENTO
-    ========================================= */
+    // --------------------------------
+    // Teclado
+    // --------------------------------
 
-    let resizeTimer;
+    carousel.addEventListener("keydown", (event) => {
+
+        if (event.key === "ArrowRight") {
+
+            currentIndex++;
+
+            updateCarousel();
+
+        }
+
+        if (event.key === "ArrowLeft") {
+
+            currentIndex--;
+
+            updateCarousel();
+
+        }
+
+    });
 
 
-    window.addEventListener(
-        "resize",
-        () => {
+    // --------------------------------
+    // Quando mudar tamanho da tela
+    // --------------------------------
 
-            clearTimeout(
-                resizeTimer
-            );
+    window.addEventListener("resize", () => {
+
+        const maxIndex = getMaxIndex();
+
+        if (currentIndex > maxIndex) {
+            currentIndex = maxIndex;
+        }
+
+        createDots();
+        updateCarousel();
+
+    });
 
 
-            resizeTimer =
+    // --------------------------------
+    // Inicialização
+    // --------------------------------
+
+    createDots();
+    updateCarousel();
+
+}
+
+
+// ===============================
+// ANO DO RODAPÉ
+// ===============================
+
+const year = document.querySelector("#current-year");
+
+if (year) {
+    year.textContent = new Date().getFullYear();
+}
+
+
+// ===============================
+// FORMULÁRIO
+// ===============================
+
+const form = document.querySelector("#contact-form");
+
+if (form) {
+
+    form.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+        alert(
+            "Mensagem enviada com sucesso! Em breve entraremos em contato."
+        );
+
+        form.reset();
+
+    });
+
+}
