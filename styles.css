@@ -439,6 +439,11 @@ section {
 /* =========================================
    CARROSSEL - NOSSOS SERVIÇOS
 ========================================= */
+ .carousel-btn.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
 
 .servicos {
     padding: 90px 0;
