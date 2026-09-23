@@ -889,4 +889,71 @@ textarea {
 
         justify-content: center;
     }
+   /* ==========================================
+   CORREÇÃO DO CARROSSEL
+========================================== */
+
+.carousel-window {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.servico-slide {
+    min-width: 100%;
+    width: 100%;
+    flex: 0 0 100%;
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   BOTÕES
+========================================== */
+
+.carousel-btn {
+    cursor: pointer;
+    z-index: 10;
+    border: none;
+}
+
+.carousel-btn.prev,
+.carousel-btn.next {
+    position: absolute;
+}
+
+
+/* ==========================================
+   BOLINHAS
+========================================== */
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #cbd5e1;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.carousel-dot.active {
+    width: 35px;
+    border-radius: 20px;
+    background: #2476ad;
+}
 }
