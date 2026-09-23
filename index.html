@@ -1,811 +1,1086 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grupo Assis | Serviços de Limpeza</title>
-  <meta name="description" content="Limpeza residencial, comercial, pós-obra e serviços personalizados. Grupo Assis.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Grupo Assis - Serviços de limpeza residencial, empresarial, cuidados e organização."
+    >
+
+    <title>Grupo Assis | Serviços</title>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
-  <script>
-const track = document.getElementById("carouselTrack");
-const prev = document.querySelector(".carousel-btn.prev");
-const next = document.querySelector(".carousel-btn.next");
 
-function moverCarrossel(direcao) {
-    const card = track.querySelector(".servico-slide");
-
-    if (!card) return;
-
-    const largura = card.offsetWidth;
-
-    const estilo = window.getComputedStyle(track);
-    const gap = parseInt(estilo.gap) || 0;
-
-    track.parentElement.scrollBy({
-        left: direcao * (largura + gap),
-        behavior: "smooth"
-    });
-}
-
-prev.addEventListener("click", function () {
-    moverCarrossel(-1);
-});
-
-next.addEventListener("click", function () {
-    moverCarrossel(1);
-});
-</script>
-  
 <body>
-  <!-- HEADER -->
-  <header class="header" id="header">
-    <div class="container nav">
-      <a href="#inicio" class="logo">
-        <div>
-          <strong>Grupo Assis</strong>
-          <small>Serviços de limpeza</small>
-        </div>
-      </a>
-      <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
 
-      <nav class="menu">
-        <a href="#inicio">Início</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#planos">Preços</a>
-        <a href="#diferenciais">Diferenciais</a>
-        <a href="#depoimentos">Avaliações</a>
-        <a href="#contato" class="nav-cta">Orçamento</a>
-      </nav>
+    <!-- =========================
+         HEADER
+    ========================== -->
 
-    </div>
-  </header>
+    <header>
 
+        <div class="container header-content">
 
-  <main>
-
-    <!-- HERO -->
-    <section class="hero" id="inicio">
-      <div class="container hero-grid">
-
-        <div class="hero-content reveal">
-          <span class="eyebrow">✨ Atendimento residencial e empresarial</span>
-
-          <h1>
-            Limpeza profissional
-            <span>sem complicação.</span>
-          </h1>
-
-          <p>
-            Conectamos você a profissionais preparadas para cuidar
-            da sua casa, empresa ou pós-obra com segurança e qualidade.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#contato" class="btn btn-primary">
-              Solicitar orçamento
+            <a href="#inicio" class="logo">
+                Grupo <span>Assis</span>
             </a>
 
-            <a
-              href="https://wa.me/5511983184154"
-              target="_blank"
-              rel="noopener"
-              class="btn btn-outline"
-            >
-              Falar no WhatsApp
-            </a>
-          </div>
+            <nav>
 
-          <div class="hero-stats">
-            <div>
-              <strong>100%</strong>
-              <span>Atendimento humanizado</span>
-            </div>
+                <a href="#inicio">Início</a>
 
-            <div>
-              <strong>7+</strong>
-              <span>Tipos de serviços</span>
-            </div>
+                <a href="#sobre">Sobre nós</a>
 
-            <div>
-              <strong>5★</strong>
-              <span>Avaliação dos clientes</span>
-            </div>
-          </div>
+                <a href="#servicos">Serviços</a>
+
+                <a href="#precos">Preços</a>
+
+                <a href="#diferenciais">Diferenciais</a>
+
+                <a href="#avaliacoes">Avaliações</a>
+
+                <a href="#contato" class="nav-button">
+                    Orçamento
+                </a>
+
+            </nav>
+
         </div>
 
-        <div class="hero-card reveal">
-          <div class="hero-image">
-            <div class="image-overlay"></div>
-
-            <div class="hero-badge">
-              <strong>✓ Equipe preparada</strong>
-              <span>Profissionais avaliadas</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
+    </header>
 
 
-    <!-- SOBRE -->
-    <section class="section about">
-      <div class="container about-grid">
+    <!-- =========================
+         HERO
+    ========================== -->
 
-        <div class="section-heading reveal">
-          <span class="eyebrow">Sobre nós</span>
+    <main>
 
-          <h2>
-            Cuidamos da limpeza.
-            <span>Você cuida do que importa.</span>
-          </h2>
-        </div>
+        <section id="inicio" class="hero">
 
-        <div class="about-content reveal">
-          <p>
-            O Grupo Assis conecta clientes a profissionais preparadas,
-            oferecendo um atendimento próximo, organizado e transparente.
-          </p>
+            <div class="container hero-content">
 
-          <div class="check-grid">
-            <span>✓ Profissionais avaliadas</span>
-            <span>✓ Rotina organizada</span>
-            <span>✓ Atendimento próximo</span>
-            <span>✓ Garantia de satisfação</span>
-          </div>
-        </div>
+                <div class="hero-text">
 
-      </div>
-    </section>
+                    <span class="hero-label">
+                        ✨ Atendimento residencial e empresarial
+                    </span>
 
+                    <h1>
+                        Limpeza profissional
+                        <span>sem complicação.</span>
+                    </h1>
 
-    <!-- SERVIÇOS -->
-    <section id="servicos" class="servicos">
-    <div class="container">
+                    <p>
+                        Conectamos você a profissionais preparadas
+                        para cuidar da sua casa, empresa ou pós-obra
+                        com segurança e qualidade.
+                    </p>
 
-        <div class="section-header">
-            <span>Nossos serviços</span>
-            <h2>Cuidados que você pode confiar</h2>
-            <p>
-                Encontre o serviço ideal para você e solicite um atendimento.
-            </p>
-        </div>
+                    <div class="hero-buttons">
 
-        <div class="carousel">
+                        <a href="#contato" class="btn btn-primary">
+                            Solicitar orçamento
+                        </a>
 
-            <!-- SETA ESQUERDA -->
-            <button class="carousel-btn prev" onclick="moverCarrossel(-1)">
-                &#10094;
-            </button>
+                        <a
+                            href="https://wa.me/5511983184154"
+                            target="_blank"
+                            class="btn btn-whatsapp"
+                        >
+                            Falar no WhatsApp
+                        </a>
 
-            <div class="carousel-window">
-
-                <div class="carousel-track" id="carouselTrack">
-
-                    <!-- SERVIÇO 1 -->
-                    <div class="servico-slide">
-                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
-                            alt="Cuidador de idosos">
-
-                        <div class="servico-info">
-                            <h3>Cuidados com idosos</h3>
-                            <strong>A partir de R$ 150</strong>
-                        </div>
                     </div>
 
+                    <div class="hero-info">
 
-                    <!-- SERVIÇO 2 -->
-                    <div class="servico-slide">
-                        <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=800&q=80"
-                            alt="Passeio com cachorro">
-
-                        <div class="servico-info">
-                            <h3>Passeio com pets</h3>
-                            <strong>A partir de R$ 50</strong>
+                        <div>
+                            <strong>100%</strong>
+                            <span>Atendimento humanizado</span>
                         </div>
-                    </div>
 
-
-                    <!-- SERVIÇO 3 -->
-                    <div class="servico-slide">
-                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80"
-                            alt="Limpeza residencial">
-
-                        <div class="servico-info">
-                            <h3>Limpeza residencial</h3>
-                            <strong>A partir de R$ 120</strong>
+                        <div>
+                            <strong>7+</strong>
+                            <span>Tipos de serviços</span>
                         </div>
-                    </div>
 
-
-                    <!-- SERVIÇO 4 -->
-                    <div class="servico-slide">
-                        <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=800&q=80"
-                            alt="Limpeza profissional">
-
-                        <div class="servico-info">
-                            <h3>Limpeza profissional</h3>
-                            <strong>A partir de R$ 130</strong>
+                        <div>
+                            <strong>5★</strong>
+                            <span>Avaliação dos clientes</span>
                         </div>
-                    </div>
 
-
-                    <!-- SERVIÇO 5 -->
-                    <div class="servico-slide">
-                        <img src="https://images.unsplash.com/photo-1599629954294-14df8bfc7bf1?auto=format&fit=crop&w=800&q=80"
-                            alt="Babá">
-
-                        <div class="servico-info">
-                            <h3>Cuidados infantis</h3>
-                            <strong>A partir de R$ 100</strong>
-                        </div>
-                    </div>
-
-
-                    <!-- SERVIÇO 6 -->
-                    <div class="servico-slide">
-                        <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=800&q=80"
-                            alt="Organização residencial">
-
-                        <div class="servico-info">
-                            <h3>Organização residencial</h3>
-                            <strong>A partir de R$ 100</strong>
-                        </div>
-                    </div>
-
-
-                    <!-- SERVIÇO 7 -->
-                    <div class="servico-slide">
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"
-                            alt="Jardinagem">
-
-                        <div class="servico-info">
-                            <h3>Jardinagem</h3>
-                            <strong>A partir de R$ 90</strong>
-                        </div>
                     </div>
 
                 </div>
+
             </div>
 
-            <!-- SETA DIREITA -->
-            <button class="carousel-btn next" onclick="moverCarrossel(1)">
-                &#10095;
-            </button>
-
-        </div>
+        </section>
 
 
-        <!-- INDICADORES -->
-        <div class="carousel-dots" id="carouselDots"></div>
+        <!-- =========================
+             SOBRE
+        ========================== -->
+
+        <section id="sobre" class="sobre">
+
+            <div class="container sobre-content">
+
+                <div class="sobre-text">
+
+                    <span class="section-label">
+                        Sobre nós
+                    </span>
+
+                    <h2>
+                        Cuidamos da limpeza.
+                        <span>Você cuida do que importa.</span>
+                    </h2>
+
+                    <p>
+                        O Grupo Assis conecta clientes a profissionais
+                        preparadas, oferecendo um atendimento próximo,
+                        organizado e transparente.
+                    </p>
+
+                    <div class="sobre-lista">
+
+                        <div>
+                            <span>✓</span>
+                            Profissionais avaliadas
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            Rotina organizada
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            Atendimento próximo
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            Garantia de satisfação
+                        </div>
+
+                    </div>
+
+                    <a href="#contato" class="btn btn-primary">
+                        Conheça nossos serviços
+                    </a>
+
+                </div>
 
 
-        <!-- SOLICITAR SERVIÇO -->
-        <div class="solicitar-servico">
+                <div class="sobre-destaque">
 
-            <div>
-                <span>Precisa de um serviço?</span>
+                    <div class="sobre-box">
 
-                <h3>
-                    Solicite seu atendimento
-                </h3>
+                        <span class="sobre-icon">
+                            ✓
+                        </span>
+
+                        <h3>
+                            Equipe preparada
+                        </h3>
+
+                        <p>
+                            Profissionais avaliadas e preparadas
+                            para oferecer um atendimento de qualidade.
+                        </p>
+
+                    </div>
+
+                    <div class="sobre-box">
+
+                        <span class="sobre-icon">
+                            ★
+                        </span>
+
+                        <h3>
+                            Atendimento humanizado
+                        </h3>
+
+                        <p>
+                            Comunicação clara e acompanhamento
+                            durante todo o atendimento.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             CARROSSEL
+             
+             NÃO ALTERE ESTE BLOCO.
+             COLOQUE AQUI O SEU CARROSSEL ATUAL.
+        =================================================== -->
+
+        <section id="servicos" class="servicos">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span>
+                        Nossos serviços
+                    </span>
+
+                    <h2>
+                        Cuidados que você pode confiar
+                    </h2>
+
+                    <p>
+                        Encontre o serviço ideal para você
+                        e solicite um atendimento.
+                    </p>
+
+                </div>
+
+
+                <!--
+                    MANTENHA AQUI O SEU CARROSSEL ATUAL.
+
+                    Não altere:
+                    .carousel
+                    .carousel-window
+                    .carousel-track
+                    .servico-slide
+                    .carousel-btn
+                -->
+
+                <!-- SEU CARROSSEL ATUAL -->
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SOLICITAÇÃO
+        ========================== -->
+
+        <section class="solicitar">
+
+            <div class="container solicitar-content">
+
+                <div>
+
+                    <span>
+                        Precisa de um serviço?
+                    </span>
+
+                    <h2>
+                        Solicite seu atendimento
+                    </h2>
+
+                    <p>
+                        Escolha o serviço ideal e entre em contato
+                        conosco para receber as informações.
+                    </p>
+
+                </div>
+
+                <a href="#contato" class="btn btn-light">
+                    Solicitar serviço →
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PREÇOS
+        ========================== -->
+
+        <section id="precos" class="precos">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span>
+                        Valores claros
+                    </span>
+
+                    <h2>
+                        Planos para cada necessidade
+                    </h2>
+
+                    <p>
+                        Orçamentos personalizados e sem custos escondidos.
+                    </p>
+
+                </div>
+
+
+                <div class="precos-grid">
+
+                    <article class="preco-card">
+
+                        <span class="preco-tag">
+                            Flexível
+                        </span>
+
+                        <h3>
+                            Limpeza ocasional
+                        </h3>
+
+                        <strong>
+                            Sob consulta
+                        </strong>
+
+                        <ul>
+                            <li>✓ 1 a 2 profissionais</li>
+                            <li>✓ 4 a 8 horas de serviço</li>
+                            <li>✓ Checklist por ambiente</li>
+                            <li>✓ Garantia de satisfação</li>
+                        </ul>
+
+                        <a href="#contato" class="btn btn-outline">
+                            Agendar
+                        </a>
+
+                    </article>
+
+
+                    <article class="preco-card destaque">
+
+                        <span class="preco-tag">
+                            Mais procurado
+                        </span>
+
+                        <h3>
+                            Limpeza semanal
+                        </h3>
+
+                        <strong>
+                            Plano personalizado
+                        </strong>
+
+                        <ul>
+                            <li>✓ Rotina fixa para sua casa</li>
+                            <li>✓ Equipe alinhada ao seu padrão</li>
+                            <li>✓ Checklist por ambiente</li>
+                            <li>✓ Atendimento prioritário</li>
+                        </ul>
+
+                        <a href="#contato" class="btn btn-primary">
+                            Solicitar plano
+                        </a>
+
+                    </article>
+
+
+                    <article class="preco-card">
+
+                        <span class="preco-tag">
+                            Empresas
+                        </span>
+
+                        <h3>
+                            Empresas e pós-obra
+                        </h3>
+
+                        <strong>
+                            Orçamento sob medida
+                        </strong>
+
+                        <ul>
+                            <li>✓ Vistoria da necessidade</li>
+                            <li>✓ Equipe dimensionada</li>
+                            <li>✓ Produtos conforme orçamento</li>
+                            <li>✓ Entrega acompanhada</li>
+                        </ul>
+
+                        <a href="#contato" class="btn btn-outline">
+                            Pedir orçamento
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             DIFERENCIAIS
+        ========================== -->
+
+        <section id="diferenciais" class="diferenciais-section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span>
+                        Por que Grupo Assis?
+                    </span>
+
+                    <h2>
+                        Serviço profissional
+                        <span>sem complicações.</span>
+                    </h2>
+
+                    <p>
+                        Organizamos todo o processo para você
+                        ter mais tranquilidade e previsibilidade.
+                    </p>
+
+                </div>
+
+
+                <div class="diferenciais-grid">
+
+                    <article class="diferencial-card">
+
+                        <span>01</span>
+
+                        <h3>
+                            Profissionais preparadas
+                        </h3>
+
+                        <p>
+                            Seleção e acompanhamento para
+                            oferecer mais segurança.
+                        </p>
+
+                    </article>
+
+
+                    <article class="diferencial-card">
+
+                        <span>02</span>
+
+                        <h3>
+                            Organização
+                        </h3>
+
+                        <p>
+                            Rotinas e checklists para manter
+                            o serviço previsível.
+                        </p>
+
+                    </article>
+
+
+                    <article class="diferencial-card">
+
+                        <span>03</span>
+
+                        <h3>
+                            Atendimento próximo
+                        </h3>
+
+                        <p>
+                            Comunicação clara desde o orçamento
+                            até a entrega.
+                        </p>
+
+                    </article>
+
+
+                    <article class="diferencial-card">
+
+                        <span>04</span>
+
+                        <h3>
+                            Agendamento fácil
+                        </h3>
+
+                        <p>
+                            Combine o melhor horário de acordo
+                            com sua necessidade.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             AVALIAÇÕES
+        ========================== -->
+
+        <section id="avaliacoes" class="avaliacoes">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span>
+                        Feedbacks
+                    </span>
+
+                    <h2>
+                        O que nossos clientes dizem
+                    </h2>
+
+                </div>
+
+
+                <div class="avaliacoes-grid">
+
+                    <article class="avaliacao-card">
+
+                        <div class="estrelas">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            “Atendimento rápido, serviço bem explicado
+                            e a casa ficou impecável.”
+                        </p>
+
+                        <strong>
+                            Mariana S.
+                        </strong>
+
+                    </article>
+
+
+                    <article class="avaliacao-card">
+
+                        <div class="estrelas">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            “A equipe foi pontual e cuidadosa
+                            com todos os ambientes.”
+                        </p>
+
+                        <strong>
+                            Felipe R.
+                        </strong>
+
+                    </article>
+
+
+                    <article class="avaliacao-card">
+
+                        <div class="estrelas">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            “Gostei da organização do orçamento
+                            e do acompanhamento depois da faxina.”
+                        </p>
+
+                        <strong>
+                            Ana C.
+                        </strong>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CTA
+        ========================== -->
+
+        <section class="cta">
+
+            <div class="container">
+
+                <span>
+                    Vamos conversar?
+                </span>
+
+                <h2>
+                    Pronto para deixar a limpeza
+                    com quem entende?
+                </h2>
+
+                <a href="#contato" class="btn btn-light">
+                    Solicitar orçamento
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTATO
+        ========================== -->
+
+        <section id="contato" class="contato">
+
+            <div class="container contato-content">
+
+
+                <div class="contato-info">
+
+                    <span class="section-label light">
+                        Contato
+                    </span>
+
+                    <h2>
+                        Conte o que você precisa.
+                    </h2>
+
+                    <p>
+                        Envie sua solicitação e nossa equipe
+                        entrará em contato para entender
+                        sua necessidade.
+                    </p>
+
+
+                    <div class="contato-item">
+
+                        <div class="contato-icon">
+                            📞
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                WhatsApp
+                            </strong>
+
+                            <span>
+                                (11) 98318-4154
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contato-item">
+
+                        <div class="contato-icon">
+                            📍
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Região de atendimento
+                            </strong>
+
+                            <span>
+                                Santana de Parnaíba,
+                                Alphaville, Itapevi e região
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contato-item">
+
+                        <div class="contato-icon">
+                            🕐
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Horário
+                            </strong>
+
+                            <span>
+                                Segunda a sexta,
+                                8h às 18h
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FORMULÁRIO -->
+
+                <div class="contato-form">
+
+                    <div class="form-header">
+
+                        <span>
+                            Solicite seu orçamento
+                        </span>
+
+                        <h3>
+                            Vamos começar?
+                        </h3>
+
+                        <p>
+                            Preencha os dados abaixo.
+                        </p>
+
+                    </div>
+
+
+                    <form>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label for="nome">
+                                    Nome
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="nome"
+                                    placeholder="Seu nome"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="telefone">
+                                    Telefone
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="telefone"
+                                    placeholder="(11) 99999-9999"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label for="email">
+                                    E-mail
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    placeholder="voce@email.com"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="servico">
+                                    Serviço
+                                </label>
+
+                                <select id="servico">
+
+                                    <option value="">
+                                        Selecione
+                                    </option>
+
+                                    <option>
+                                        Limpeza residencial
+                                    </option>
+
+                                    <option>
+                                        Limpeza profissional
+                                    </option>
+
+                                    <option>
+                                        Cuidados com idosos
+                                    </option>
+
+                                    <option>
+                                        Passeio com pets
+                                    </option>
+
+                                    <option>
+                                        Cuidados infantis
+                                    </option>
+
+                                    <option>
+                                        Organização residencial
+                                    </option>
+
+                                    <option>
+                                        Jardinagem
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="mensagem">
+                                Mensagem
+                            </label>
+
+                            <textarea
+                                id="mensagem"
+                                rows="5"
+                                placeholder="Conte um pouco sobre o serviço que você precisa..."
+                            ></textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary btn-form"
+                        >
+                            Enviar solicitação →
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FAQ
+        ========================== -->
+
+        <section class="faq">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span>
+                        Dúvidas
+                    </span>
+
+                    <h2>
+                        Perguntas frequentes
+                    </h2>
+
+                </div>
+
+
+                <div class="faq-list">
+
+                    <details>
+
+                        <summary>
+                            Quais regiões vocês atendem?
+                        </summary>
+
+                        <p>
+                            Atualmente o atendimento contempla
+                            Santana de Parnaíba, Alphaville,
+                            Itapevi e região.
+                        </p>
+
+                    </details>
+
+
+                    <details>
+
+                        <summary>
+                            Como funciona o orçamento?
+                        </summary>
+
+                        <p>
+                            Você envia seus dados e explica o serviço
+                            que precisa. A equipe avalia a demanda
+                            e entra em contato.
+                        </p>
+
+                    </details>
+
+
+                    <details>
+
+                        <summary>
+                            Posso contratar uma limpeza recorrente?
+                        </summary>
+
+                        <p>
+                            Sim. É possível montar uma rotina
+                            de atendimento conforme sua necessidade.
+                        </p>
+
+                    </details>
+
+
+                    <details>
+
+                        <summary>
+                            Vocês também atendem empresas?
+                        </summary>
+
+                        <p>
+                            Sim. O Grupo Assis oferece soluções
+                            para ambientes comerciais e serviços
+                            pós-obra.
+                        </p>
+
+                    </details>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+            <div class="footer-about">
+
+                <a href="#inicio" class="footer-logo">
+                    Grupo <span>Assis</span>
+                </a>
 
                 <p>
-                    Escolha o serviço ideal e entre em contato conosco.
+                    Limpeza profissional com cuidado,
+                    organização e atendimento humano.
                 </p>
+
             </div>
 
-           <a href="#contato" class="btn-solicitar">
-             Solicitar serviço
-             <span>→</span>
-           </a>
+
+            <div class="footer-column">
+
+                <h3>
+                    Navegação
+                </h3>
+
+                <a href="#inicio">
+                    Início
+                </a>
+
+                <a href="#sobre">
+                    Sobre nós
+                </a>
+
+                <a href="#servicos">
+                    Serviços
+                </a>
+
+                <a href="#precos">
+                    Preços
+                </a>
+
+                <a href="#contato">
+                    Contato
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Contato
+                </h3>
+
+                <a href="tel:+5511983184154">
+                    (11) 98318-4154
+                </a>
+
+                <a
+                    href="https://wa.me/5511983184154"
+                    target="_blank"
+                >
+                    WhatsApp
+                </a>
+
+                <a
+                    href="https://www.instagram.com/"
+                    target="_blank"
+                >
+                    Instagram
+                </a>
+
+            </div>
 
         </div>
 
-    </div>
-</section>
 
+        <div class="container footer-bottom">
 
-    <!-- PLANOS -->
-    <section class="section plans" id="planos">
-      <div class="container">
-
-        <div class="section-title reveal">
-          <span class="eyebrow">Valores claros</span>
-          <h2>Planos para cada necessidade</h2>
-          <p>
-            Orçamentos personalizados e sem custos escondidos.
-          </p>
-        </div>
-
-        <div class="plans-grid">
-
-          <article class="plan-card reveal">
-            <span class="plan-tag">Flexível</span>
-
-            <h3>Limpeza ocasional</h3>
-
-            <div class="price">
-              Sob consulta
-            </div>
-
-            <ul>
-              <li>1 a 2 profissionais</li>
-              <li>4 a 8 horas de serviço</li>
-              <li>Checklist por ambiente</li>
-              <li>Garantia de satisfação</li>
-            </ul>
-
-            <a href="#contato" class="btn btn-dark">
-              Agendar
-            </a>
-          </article>
-
-
-          <article class="plan-card featured reveal">
-            <span class="plan-tag">Mais procurado</span>
-
-            <h3>Limpeza semanal</h3>
-
-            <div class="price">
-              Plano personalizado
-            </div>
-
-            <ul>
-              <li>Rotina fixa para sua casa</li>
-              <li>Equipe alinhada ao seu padrão</li>
-              <li>Checklist por ambiente</li>
-              <li>Atendimento prioritário</li>
-            </ul>
-
-            <a href="#contato" class="btn btn-primary">
-              Solicitar plano
-            </a>
-          </article>
-
-
-          <article class="plan-card reveal">
-            <span class="plan-tag">Empresas</span>
-
-            <h3>Empresas e pós-obra</h3>
-
-            <div class="price">
-              Orçamento sob medida
-            </div>
-
-            <ul>
-              <li>Vistoria da necessidade</li>
-              <li>Equipe dimensionada</li>
-              <li>Produtos conforme orçamento</li>
-              <li>Entrega acompanhada</li>
-            </ul>
-
-            <a href="#contato" class="btn btn-dark">
-              Pedir orçamento
-            </a>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- DIFERENCIAIS -->
-    <section class="section benefits" id="diferenciais">
-      <div class="container benefits-grid">
-
-        <div class="section-heading reveal">
-          <span class="eyebrow">Por que Grupo Assis?</span>
-
-          <h2>
-            Serviço profissional
-            <span>sem complicações.</span>
-          </h2>
-
-          <p>
-            Organizamos todo o processo para você ter
-            mais tranquilidade e previsibilidade.
-          </p>
-
-          <a href="#contato" class="btn btn-primary">
-            Quero contratar
-          </a>
-        </div>
-
-        <div class="benefit-list">
-
-          <div class="benefit reveal">
-            <span>01</span>
-            <div>
-              <h3>Profissionais preparadas</h3>
-              <p>
-                Seleção e acompanhamento para oferecer mais segurança.
-              </p>
-            </div>
-          </div>
-
-          <div class="benefit reveal">
-            <span>02</span>
-            <div>
-              <h3>Organização</h3>
-              <p>
-                Rotinas e checklists para manter o serviço previsível.
-              </p>
-            </div>
-          </div>
-
-          <div class="benefit reveal">
-            <span>03</span>
-            <div>
-              <h3>Atendimento próximo</h3>
-              <p>
-                Comunicação clara desde o orçamento até a entrega.
-              </p>
-            </div>
-          </div>
-
-          <div class="benefit reveal">
-            <span>04</span>
-            <div>
-              <h3>Agendamento fácil</h3>
-              <p>
-                Combine o melhor horário de acordo com sua necessidade.
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- DEPOIMENTOS -->
-    <section class="section testimonials" id="depoimentos">
-      <div class="container">
-
-        <div class="section-title reveal">
-          <span class="eyebrow">Feedbacks</span>
-          <h2>O que nossos clientes dizem</h2>
-        </div>
-
-        <div class="testimonial-slider">
-
-          <article class="testimonial active">
-            <div class="stars">★★★★★</div>
-
-            <blockquote>
-              “Atendimento rápido, serviço bem explicado
-              e a casa ficou impecável.”
-            </blockquote>
-
-            <strong>Mariana S.</strong>
-          </article>
-
-          <article class="testimonial">
-            <div class="stars">★★★★★</div>
-
-            <blockquote>
-              “A equipe foi pontual e cuidadosa
-              com todos os ambientes.”
-            </blockquote>
-
-            <strong>Felipe R.</strong>
-          </article>
-
-          <article class="testimonial">
-            <div class="stars">★★★★★</div>
-
-            <blockquote>
-              “Gostei da organização do orçamento
-              e do acompanhamento depois da faxina.”
-            </blockquote>
-
-            <strong>Ana C.</strong>
-          </article>
-
-          <div class="slider-controls">
-            <button data-slide="prev" aria-label="Anterior">←</button>
-            <button data-slide="next" aria-label="Próximo">→</button>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- CTA -->
-    <section class="cta">
-      <div class="container cta-content reveal">
-        <div>
-          <span class="eyebrow">Vamos conversar?</span>
-          <h2>Pronto para deixar a limpeza com quem entende?</h2>
-        </div>
-
-        <a href="#contato" class="btn btn-light">
-          Solicitar orçamento
-        </a>
-      </div>
-    </section>
-
-
-    <!-- CONTATO -->
-    <section class="section contact" id="contato">
-      <div class="container contact-grid">
-
-        <div class="contact-info reveal">
-          <span class="eyebrow">Contato</span>
-
-          <h2>
-            Conte o que você precisa.
-          </h2>
-
-          <p>
-            Envie sua solicitação e nossa equipe entrará em contato
-            para entender sua necessidade.
-          </p>
-
-          <div class="contact-items">
-            <a href="tel:+5511983184154">
-              <span>📞</span>
-              <div>
-                <small>WhatsApp</small>
-                <strong>(11) 98318-4154</strong>
-              </div>
-            </a>
-
-            <div>
-              <span>📍</span>
-              <div>
-                <small>Região de atendimento</small>
-                <strong>
-                  Santana de Parnaíba, Alphaville,
-                  Itapevi e região
-                </strong>
-              </div>
-            </div>
-
-            <div>
-              <span>🕐</span>
-              <div>
-                <small>Horário</small>
-                <strong>Segunda a sexta, 8h às 18h</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <form class="contact-form reveal" id="contactForm">
-
-          <div class="form-row">
-            <label>
-              Nome
-              <input
-                type="text"
-                name="name"
-                placeholder="Seu nome"
-                required
-              >
-            </label>
-
-            <label>
-              Telefone
-              <input
-                type="tel"
-                name="phone"
-                placeholder="(11) 99999-9999"
-                required
-              >
-            </label>
-          </div>
-
-          <label>
-            E-mail
-            <input
-              type="email"
-              name="email"
-              placeholder="voce@email.com"
-              required
-            >
-          </label>
-
-          <label>
-            Serviço
-            <select name="service" required>
-              <option value="">Selecione</option>
-              <option>Limpeza residencial</option>
-              <option>Limpeza detalhada</option>
-              <option>Limpeza comercial</option>
-              <option>Limpeza pós-obra</option>
-              <option>Cuidado com idosos</option>
-              <option>Faxina programada</option>
-              <option>Passeios com cães</option>
-            </select>
-          </label>
-
-          <label>
-            Mensagem
-            <textarea
-              name="message"
-              rows="5"
-              placeholder="Conte um pouco sobre o que você precisa..."
-            ></textarea>
-          </label>
-
-          <button class="btn btn-primary" type="submit">
-            Enviar solicitação
-          </button>
-
-        </form>
-
-      </div>
-    </section>
-
-
-    <!-- FAQ -->
-    <section class="section faq">
-      <div class="container">
-
-        <div class="section-title reveal">
-          <span class="eyebrow">Dúvidas</span>
-          <h2>Perguntas frequentes</h2>
-        </div>
-
-        <div class="faq-list">
-
-          <details class="reveal">
-            <summary>Quais regiões vocês atendem?</summary>
             <p>
-              Atualmente o atendimento contempla Santana de Parnaíba,
-              Alphaville, Itapevi e região.
+                © 2026 Grupo Assis Serviços.
+                Todos os direitos reservados.
             </p>
-          </details>
-
-          <details class="reveal">
-            <summary>Como funciona o orçamento?</summary>
-            <p>
-              Você envia seus dados e explica o serviço que precisa.
-              A equipe avalia a demanda e entra em contato.
-            </p>
-          </details>
-
-          <details class="reveal">
-            <summary>Posso contratar uma limpeza recorrente?</summary>
-            <p>
-              Sim. É possível montar uma rotina de atendimento
-              conforme sua necessidade.
-            </p>
-          </details>
-
-          <details class="reveal">
-            <summary>Vocês também atendem empresas?</summary>
-            <p>
-              Sim. O Grupo Assis oferece soluções para ambientes
-              comerciais e serviços pós-obra.
-            </p>
-          </details>
 
         </div>
 
-      </div>
-    </section>
-
-  </main>
+    </footer>
 
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-grid">
+    <!-- BOTÃO WHATSAPP -->
 
-      <div>
-        <a href="#inicio" class="logo footer-logo">
-          <span>GA</span>
-          <div>
-            <strong>Grupo Assis</strong>
-            <small>Serviços de limpeza</small>
-          </div>
-        </a>
-
-        <p>
-          Limpeza profissional com cuidado,
-          organização e atendimento humano.
-        </p>
-      </div>
-
-      <div>
-        <h4>Navegação</h4>
-
-        <a href="#inicio">Início</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#planos">Preços</a>
-        <a href="#contato">Contato</a>
-      </div>
-
-      <div>
-        <h4>Contato</h4>
-
-        <a href="tel:+5511983184154">
-          (11) 98318-4154
-        </a>
-
-        <a
-          href="https://www.instagram.com/grupoassisservicos/"
-          target="_blank"
-          rel="noopener"
-        >
-          Instagram
-        </a>
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container">
-        © 2026 Grupo Assis Serviços. Todos os direitos reservados.
-      </div>
-    </div>
-  </footer>
+    <a
+        href="https://wa.me/5511983184154"
+        target="_blank"
+        class="whatsapp-float"
+        aria-label="Falar no WhatsApp"
+    >
+        ☎
+    </a>
 
 
-  <!-- WHATSAPP -->
-  <a
-    href="https://wa.me/5511983184154"
-    target="_blank"
-    rel="noopener"
-    class="whatsapp"
-    aria-label="Falar pelo WhatsApp"
-  >
-    <span>◉</span>
-  </a>
+    <!-- BOTÃO TOPO -->
 
+    <a
+        href="#inicio"
+        class="btn-topo"
+        aria-label="Voltar ao topo"
+    >
+        ↑
+    </a>
 
-  <!-- TOAST -->
-  <div class="toast" id="toast">
-    Solicitação enviada com sucesso!
-  </div>
-
-
-  <script src="script.js"></script>
-  <script>
-
-const carouselWindow = document.querySelector(".carousel-window");
-
-const botaoAnterior = document.querySelector(".carousel-btn.prev");
-
-const botaoProximo = document.querySelector(".carousel-btn.next");
-
-
-botaoAnterior.addEventListener("click", function () {
-
-    carouselWindow.scrollBy({
-        left: -380,
-        behavior: "smooth"
-    });
-
-});
-
-
-botaoProximo.addEventListener("click", function () {
-
-    carouselWindow.scrollBy({
-        left: 380,
-        behavior: "smooth"
-    });
-
-});
-
-</script>
 </body>
-</html>
 
-<section id="solicitar">
-    ...
-</section>
+</html>
