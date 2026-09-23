@@ -270,7 +270,153 @@ textarea {
 
     color: #64748b;
 }
+/* ================================
+   SOBRE NÓS
+================================ */
 
+.sobre {
+    padding: 80px 8%;
+    background: #f8fbff;
+}
+
+.sobre-texto {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.sobre-titulo {
+    color: #2f80c9;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sobre-texto h2 {
+    font-size: 36px;
+    color: #123b5d;
+    margin: 12px 0 18px;
+}
+
+.sobre-texto p {
+    color: #5f6f7d;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.sobre-beneficios {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 25px;
+    margin-top: 25px;
+}
+
+.sobre-beneficios span {
+    color: #245a7d;
+    font-weight: 600;
+}
+
+
+/* ================================
+   EQUIPE
+================================ */
+
+.equipe {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+
+/* CARD DA PESSOA */
+
+.pessoa {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s ease;
+}
+
+.pessoa:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+/* FOTO */
+
+.pessoa img {
+    width: 100%;
+    height: 270px;
+
+    object-fit: cover;
+    display: block;
+}
+
+
+/* ÁREA ABAIXO DA FOTO */
+
+.pessoa-info {
+    padding: 18px;
+    text-align: center;
+}
+
+.pessoa-info h3 {
+    margin: 0 0 7px;
+
+    color: #123b5d;
+    font-size: 18px;
+}
+
+.pessoa-info p {
+    margin: 0;
+
+    color: #6c7a86;
+    font-size: 14px;
+}
+
+
+/* ================================
+   CELULAR
+================================ */
+
+@media (max-width: 900px) {
+
+    .equipe {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .sobre {
+        padding: 60px 20px;
+    }
+
+    .sobre-texto h2 {
+        font-size: 28px;
+    }
+
+    .equipe {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .pessoa img {
+        height: 300px;
+    }
+
+}
 
 /* =========================================
    CARROSSEL - NOSSOS SERVIÇOS
