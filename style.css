@@ -17,9 +17,8 @@
 .logo span {
    font-size: 1.4rem;
    font-weight: 700;
-   width: 45px;
-   height: 45px;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -1007,7 +1006,7 @@ button {
 }
 
 .logo span {
-    font-size: 1.1rem;
+    font-size: 25px;
 }
     .hero-text {
         max-width: 750px;
