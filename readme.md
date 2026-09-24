@@ -1,7 +1,5 @@
 # 🏠 Grupo Assis — Serviços Residenciais
 
-![Grupo Assis](https://grupo-assis.vercel.app/)
-
 ## 📌 Sobre o projeto
 
 O **Grupo Assis** é um website institucional desenvolvido para apresentar serviços residenciais de forma moderna, organizada e responsiva.
