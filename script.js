@@ -1,7 +1,3 @@
-// ===============================
-// MENU MOBILE
-// ===============================
-
 const menuBtn = document.querySelector(".menu-btn");
 const nav = document.querySelector(".nav");
 
@@ -11,255 +7,79 @@ if (menuBtn && nav) {
     });
 }
 
-
-// ===============================
-// CARROSSEL DE SERVIÇOS
-// ===============================
-
 const carousel = document.querySelector(".carousel");
 const track = document.querySelector(".carousel-track");
 const slides = document.querySelectorAll(".servico-slide");
 const prevBtn = document.querySelector(".carousel-btn.prev");
 const nextBtn = document.querySelector(".carousel-btn.next");
 const dotsContainer = document.querySelector(".carousel-dots");
-
 let currentIndex = 0;
 
-
-// Verifica se o carrossel existe
 if (carousel && track && slides.length > 0) {
-
-    // --------------------------------
-    // Descobre quantos cards aparecem
-    // --------------------------------
-
     function getVisibleSlides() {
         if (window.innerWidth <= 700) {
-            return 1;
-        }
-
+            return 1;}
         if (window.innerWidth <= 1000) {
-            return 2;
-        }
-
-        return 3;
-    }
-
-
-    // --------------------------------
-    // Quantidade máxima de movimento
-    // --------------------------------
-
+            return 2;}
+        return 3;}
+    
     function getMaxIndex() {
-        return Math.max(
-            0,
-            slides.length - getVisibleSlides()
-        );
-    }
-
-
-    // --------------------------------
-    // Cria as bolinhas
-    // --------------------------------
-
+        return Math.max(0, slides.length - getVisibleSlides());}
     function createDots() {
-
         if (!dotsContainer) return;
-
         dotsContainer.innerHTML = "";
-
         const maxIndex = getMaxIndex();
-
-        for (let i = 0; i <= maxIndex; i++) {
-
-            const dot = document.createElement("button");
-
-            dot.type = "button";
+        for (let i = 0; i <= maxIndex; i++) {const dot = document.createElement("button"); dot.type = "button";
             dot.classList.add("carousel-dot");
-
             if (i === currentIndex) {
-                dot.classList.add("active");
-            }
-
-            dot.addEventListener("click", () => {
-                currentIndex = i;
-                updateCarousel();
-            });
-
-            dotsContainer.appendChild(dot);
-        }
-    }
-
-
-    // --------------------------------
-    // Atualiza posição do carrossel
-    // --------------------------------
-
+                dot.classList.add("active");}
+            dot.addEventListener("click", () => {currentIndex = i; updateCarousel();});
+            dotsContainer.appendChild(dot);}}
+    
     function updateCarousel() {
-
         const maxIndex = getMaxIndex();
-
-        // Impede passar do começo
         if (currentIndex < 0) {
-            currentIndex = 0;
-        }
-
-        // Impede passar do final
+            currentIndex = 0;}
         if (currentIndex > maxIndex) {
-            currentIndex = maxIndex;
-        }
-
+            currentIndex = maxIndex;}
         const slide = slides[currentIndex];
-
         if (!slide) return;
-
-
-        // Pega a posição real do card
-        const position = slide.offsetLeft;
-
-        track.style.transform = `translateX(-${position}px)`;
-
-
-        // Atualiza as bolinhas
-
+        const position = slide.offsetLeft; track.style.transform = `translateX(-${position}px)`;
         const dots = document.querySelectorAll(".carousel-dot");
-
         dots.forEach((dot, index) => {
-
-            dot.classList.toggle(
-                "active",
-                index === currentIndex
-            );
-
-        });
-    }
-
-
-    // --------------------------------
-    // Botão ANTERIOR
-    // --------------------------------
-
+        dot.classList.toggle("active", index === currentIndex);});}
     if (prevBtn) {
-
-        prevBtn.addEventListener("click", () => {
-
-            currentIndex--;
-
-            updateCarousel();
-
-        });
-
-    }
-
-
-    // --------------------------------
-    // Botão PRÓXIMO
-    // --------------------------------
-
+        prevBtn.addEventListener("click", () => {currentIndex--;
+            updateCarousel();});}
     if (nextBtn) {
-
         nextBtn.addEventListener("click", () => {
-
             currentIndex++;
-
-            updateCarousel();
-
-        });
-
-    }
-
-
-    // --------------------------------
-    // Arrastar no celular
-    // --------------------------------
-
+            updateCarousel();});}
     let touchStartX = 0;
     let touchEndX = 0;
-
-
     track.addEventListener(
         "touchstart",
+        (event) => {touchStartX = event.touches[0].clientX;},
+        { passive: true ));
+    track.addEventListener("touchend",
         (event) => {
-
-            touchStartX = event.touches[0].clientX;
-
-        },
-        { passive: true }
-    );
-
-
-    track.addEventListener(
-        "touchend",
-        (event) => {
-
             touchEndX = event.changedTouches[0].clientX;
-
             const difference = touchStartX - touchEndX;
-
-            // Arrastou para esquerda
-            if (difference > 50) {
-
-                currentIndex++;
-
-                updateCarousel();
-
-            }
-
-            // Arrastou para direita
-            if (difference < -50) {
-
-                currentIndex--;
-
-                updateCarousel();
-
-            }
-
-        },
-        { passive: true }
-    );
-
-
-    // --------------------------------
-    // Teclado
-    // --------------------------------
-
+            if (difference > 50) {currentIndex++;
+                updateCarousel();}
+            if (difference < -50) {currentIndex--;
+                updateCarousel();}},{ passive: true });
     carousel.addEventListener("keydown", (event) => {
-
-        if (event.key === "ArrowRight") {
-
-            currentIndex++;
-
-            updateCarousel();
-
-        }
-
-        if (event.key === "ArrowLeft") {
-
-            currentIndex--;
-
-            updateCarousel();
-
-        }
-
-    });
-
-
-    // --------------------------------
-    // Quando mudar tamanho da tela
-    // --------------------------------
+        if (event.key === "ArrowRight") {currentIndex++;
+            updateCarousel();}
+        if (event.key === "ArrowLeft") {currentIndex--;
+            updateCarousel();}});
 
     window.addEventListener("resize", () => {
-
         const maxIndex = getMaxIndex();
-
         if (currentIndex > maxIndex) {
-            currentIndex = maxIndex;
-        }
-
-        createDots();
-        updateCarousel();
-
-    });
+            currentIndex = maxIndex;} createDots();
+        updateCarousel();});
 
 
     // --------------------------------
