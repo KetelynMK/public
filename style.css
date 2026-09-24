@@ -266,7 +266,6 @@ button {
 .hero-image {
     border-radius: 25px;
     overflow: hidden;
-
     box-shadow: var(--shadow);
 }
 
@@ -325,9 +324,7 @@ button {
 
 .about-image {
     overflow: hidden;
-
     border-radius: var(--radius);
-
     box-shadow: var(--shadow);
 }
 
