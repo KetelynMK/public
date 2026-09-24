@@ -1,3 +1,8 @@
+```javascript
+// ==========================================
+// MENU MOBILE
+// ==========================================
+
 const menuBtn = document.querySelector(".menu-btn");
 const nav = document.querySelector(".nav");
 
@@ -5,109 +10,324 @@ if (menuBtn && nav) {
     menuBtn.addEventListener("click", () => {
         nav.classList.toggle("active");
     });
+
+    // Fecha o menu ao clicar em um link
+    const navLinks = nav.querySelectorAll("a");
+
+    navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            nav.classList.remove("active");
+        });
+    });
 }
+
+
+// ==========================================
+// CARROSSEL DE SERVIÇOS
+// ==========================================
 
 const carousel = document.querySelector(".carousel");
 const track = document.querySelector(".carousel-track");
 const slides = document.querySelectorAll(".servico-slide");
+
 const prevBtn = document.querySelector(".carousel-btn.prev");
 const nextBtn = document.querySelector(".carousel-btn.next");
+
 const dotsContainer = document.querySelector(".carousel-dots");
+
 let currentIndex = 0;
 
+
+// Verifica se o carrossel existe
 if (carousel && track && slides.length > 0) {
+
+    // ------------------------------------------
+    // Quantidade de slides visíveis
+    // ------------------------------------------
+
     function getVisibleSlides() {
+
         if (window.innerWidth <= 700) {
-            return 1;}
+            return 1;
+        }
+
         if (window.innerWidth <= 1000) {
-            return 2;}
-        return 3;}
-    
+            return 2;
+        }
+
+        return 3;
+    }
+
+
+    // ------------------------------------------
+    // Índice máximo possível
+    // ------------------------------------------
+
     function getMaxIndex() {
-        return Math.max(0, slides.length - getVisibleSlides());}
+
+        return Math.max(
+            0,
+            slides.length - getVisibleSlides()
+        );
+    }
+
+
+    // ------------------------------------------
+    // Criar bolinhas
+    // ------------------------------------------
+
     function createDots() {
-        if (!dotsContainer) return;
+
+        if (!dotsContainer) {
+            return;
+        }
+
         dotsContainer.innerHTML = "";
+
         const maxIndex = getMaxIndex();
-        for (let i = 0; i <= maxIndex; i++) {const dot = document.createElement("button"); dot.type = "button";
+
+        for (let i = 0; i <= maxIndex; i++) {
+
+            const dot = document.createElement("button");
+
+            dot.type = "button";
             dot.classList.add("carousel-dot");
+
             if (i === currentIndex) {
-                dot.classList.add("active");}
-            dot.addEventListener("click", () => {currentIndex = i; updateCarousel();});
-            dotsContainer.appendChild(dot);}}
-    
+                dot.classList.add("active");
+            }
+
+            dot.setAttribute(
+                "aria-label",
+                `Ir para o serviço ${i + 1}`
+            );
+
+            dot.addEventListener("click", () => {
+
+                currentIndex = i;
+
+                updateCarousel();
+
+            });
+
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+
+    // ------------------------------------------
+    // Atualizar carrossel
+    // ------------------------------------------
+
     function updateCarousel() {
+
         const maxIndex = getMaxIndex();
+
+        // Impede índice menor que 0
         if (currentIndex < 0) {
-            currentIndex = 0;}
+            currentIndex = 0;
+        }
+
+        // Impede passar do último slide
         if (currentIndex > maxIndex) {
-            currentIndex = maxIndex;}
-        const slide = slides[currentIndex];
-        if (!slide) return;
-        const position = slide.offsetLeft; track.style.transform = `translateX(-${position}px)`;
-        const dots = document.querySelectorAll(".carousel-dot");
-        dots.forEach((dot, index) => {
-        dot.classList.toggle("active", index === currentIndex);});}
+            currentIndex = maxIndex;
+        }
+
+        const currentSlide = slides[currentIndex];
+
+        if (!currentSlide) {
+            return;
+        }
+
+        // Move o carrossel
+        const position = currentSlide.offsetLeft;
+
+        track.style.transform =
+            `translateX(-${position}px)`;
+
+
+        // Atualiza as bolinhas
+        if (dotsContainer) {
+
+            const dots =
+                dotsContainer.querySelectorAll(".carousel-dot");
+
+            dots.forEach((dot, index) => {
+
+                dot.classList.toggle(
+                    "active",
+                    index === currentIndex
+                );
+
+            });
+        }
+    }
+
+
+    // ------------------------------------------
+    // Botão ANTERIOR
+    // ------------------------------------------
+
     if (prevBtn) {
-        prevBtn.addEventListener("click", () => {currentIndex--;
-            updateCarousel();});}
+
+        prevBtn.addEventListener("click", () => {
+
+            currentIndex--;
+
+            updateCarousel();
+
+        });
+    }
+
+
+    // ------------------------------------------
+    // Botão PRÓXIMO
+    // ------------------------------------------
+
     if (nextBtn) {
+
         nextBtn.addEventListener("click", () => {
+
             currentIndex++;
-            updateCarousel();});}
+
+            updateCarousel();
+
+        });
+    }
+
+
+    // ==========================================
+    // SWIPE NO CELULAR
+    // ==========================================
+
     let touchStartX = 0;
     let touchEndX = 0;
+
     track.addEventListener(
         "touchstart",
-        (event) => {touchStartX = event.touches[0].clientX;},
-        { passive: true ));
-    track.addEventListener("touchend",
         (event) => {
-            touchEndX = event.changedTouches[0].clientX;
-            const difference = touchStartX - touchEndX;
-            if (difference > 50) {currentIndex++;
-                updateCarousel();}
-            if (difference < -50) {currentIndex--;
-                updateCarousel();}},{ passive: true });
+
+            touchStartX =
+                event.touches[0].clientX;
+
+        },
+        { passive: true }
+    );
+
+
+    track.addEventListener(
+        "touchend",
+        (event) => {
+
+            touchEndX =
+                event.changedTouches[0].clientX;
+
+            const difference =
+                touchStartX - touchEndX;
+
+
+            // Arrastou para a esquerda
+            if (difference > 50) {
+
+                currentIndex++;
+
+                updateCarousel();
+
+            }
+
+
+            // Arrastou para a direita
+            if (difference < -50) {
+
+                currentIndex--;
+
+                updateCarousel();
+
+            }
+
+        },
+        { passive: true }
+    );
+
+
+    // ==========================================
+    // CONTROLE PELO TECLADO
+    // ==========================================
+
+    carousel.setAttribute("tabindex", "0");
+
     carousel.addEventListener("keydown", (event) => {
-        if (event.key === "ArrowRight") {currentIndex++;
-            updateCarousel();}
-        if (event.key === "ArrowLeft") {currentIndex--;
-            updateCarousel();}});
+
+        if (event.key === "ArrowRight") {
+
+            event.preventDefault();
+
+            currentIndex++;
+
+            updateCarousel();
+        }
+
+
+        if (event.key === "ArrowLeft") {
+
+            event.preventDefault();
+
+            currentIndex--;
+
+            updateCarousel();
+        }
+    });
+
+
+    // ==========================================
+    // RESPONSIVIDADE
+    // ==========================================
 
     window.addEventListener("resize", () => {
+
         const maxIndex = getMaxIndex();
+
         if (currentIndex > maxIndex) {
-            currentIndex = maxIndex;} createDots();
-        updateCarousel();});
+            currentIndex = maxIndex;
+        }
+
+        createDots();
+
+        updateCarousel();
+
+    });
 
 
-    // --------------------------------
-    // Inicialização
-    // --------------------------------
+    // ==========================================
+    // INICIALIZAÇÃO
+    // ==========================================
 
     createDots();
-    updateCarousel();
 
+    updateCarousel();
 }
 
 
-// ===============================
-// ANO DO RODAPÉ
-// ===============================
+// ==========================================
+// ANO AUTOMÁTICO DO RODAPÉ
+// ==========================================
 
 const year = document.querySelector("#current-year");
 
 if (year) {
-    year.textContent = new Date().getFullYear();
+
+    year.textContent =
+        new Date().getFullYear();
+
 }
 
 
-// ===============================
-// FORMULÁRIO
-// ===============================
+// ==========================================
+// FORMULÁRIO DE CONTATO
+// ==========================================
 
-const form = document.querySelector("#contact-form");
+const form =
+    document.querySelector("#contact-form");
 
 if (form) {
 
@@ -124,3 +344,4 @@ if (form) {
     });
 
 }
+```
