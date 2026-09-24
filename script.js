@@ -1,6 +1,7 @@
 // ==========================================
 // MENU MOBILE
 // ==========================================
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const menuBtn = document.querySelector(".menu-btn");
@@ -9,38 +10,42 @@ document.addEventListener("DOMContentLoaded", () => {
     if (menuBtn && nav) {
 
         menuBtn.addEventListener("click", () => {
+
             nav.classList.toggle("active");
 
-            if (nav.classList.contains("active")) {
-                menuBtn.setAttribute("aria-label", "Fechar menu");
-            } else {
-                menuBtn.setAttribute("aria-label", "Abrir menu");
-            }
+            const menuAberto = nav.classList.contains("active");
+
+            menuBtn.setAttribute(
+                "aria-expanded",
+                menuAberto ? "true" : "false"
+            );
+
+            menuBtn.setAttribute(
+                "aria-label",
+                menuAberto ? "Fechar menu" : "Abrir menu"
+            );
+
         });
 
-        // Fecha o menu quando clicar em algum link
+        // Fecha o menu ao clicar em um link
         const navLinks = nav.querySelectorAll("a");
 
-        navLinks.forEach(link => {
+        navLinks.forEach((link) => {
+
             link.addEventListener("click", () => {
+
                 nav.classList.remove("active");
+
+                menuBtn.setAttribute("aria-expanded", "false");
                 menuBtn.setAttribute("aria-label", "Abrir menu");
+
             });
+
         });
 
     }
 
 });
-
-    // Fecha o menu ao clicar em um link
-    const navLinks = nav.querySelectorAll("a");
-
-    navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-            nav.classList.remove("active");
-        });
-    });
-}
 
 
 // ==========================================
@@ -78,7 +83,6 @@ if (carousel && track && slides.length > 0) {
 
         return 3;
     }
-
 
     // ------------------------------------------
     // Índice máximo possível
