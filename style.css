@@ -1,7 +1,23 @@
 /* =========================================
    RESET
 ========================================= */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
 
+.logo img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.logo span {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
 * {
     margin: 0;
     padding: 0;
@@ -983,7 +999,14 @@ button {
 
         gap: 40px;
     }
+.logo img {
+    width: 38px;
+    height: 38px;
+}
 
+.logo span {
+    font-size: 1.1rem;
+}
     .hero-text {
         max-width: 750px;
     }
