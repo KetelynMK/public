@@ -348,23 +348,37 @@ if (year) {
 
 
 // ==========================================
-// FORMULÁRIO DE CONTATO
+// ==========================================
+// FORMULÁRIO → WHATSAPP
 // ==========================================
 
-const form =
-    document.querySelector("#contact-form");
+const contactForm = document.querySelector("#contactForm");
 
-if (form) {
+if (contactForm) {
 
-    form.addEventListener("submit", (event) => {
+    contactForm.addEventListener("submit", (event) => {
 
         event.preventDefault();
 
-        alert(
-            "Mensagem enviada com sucesso! Em breve entraremos em contato."
-        );
+        const nome = document.querySelector("#nome").value.trim();
+        const telefone = document.querySelector("#telefone").value.trim();
+        const mensagem = document.querySelector("#mensagem").value.trim();
 
-        form.reset();
+        const texto = `Olá! Sou ${nome}.
+
+Meu telefone: ${telefone}
+
+Gostaria de saber mais sobre:
+${mensagem}`;
+
+        const textoWhatsApp = encodeURIComponent(texto);
+
+        const numeroEmpresa = "5511983184154";
+
+        const linkWhatsApp =
+            `https://wa.me/${numeroEmpresa}?text=${textoWhatsApp}`;
+
+        window.open(linkWhatsApp, "_blank");
 
     });
 
